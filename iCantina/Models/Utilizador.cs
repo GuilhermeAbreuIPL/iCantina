@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace iCantina
 {
-    internal class Utilizador : DbContext
+    internal class Utilizador
     {
         // Properties da class Utilizador: Id, nome , nif.
         public int Id { get; set; }
@@ -17,12 +17,12 @@ namespace iCantina
         
 
         // Construtor da class Utilizador a mandar parametros para a base de dados.
-        public Utilizador(int id, string nome, string nif)
+        /*public Utilizador(int id, string nome, string nif)
         {
             Id = id;
             Nome = nome;
             Nif = nif;
-        }
+        }*/
 
     }
 }
