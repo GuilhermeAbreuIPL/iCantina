@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iCantina
+namespace iCantina.Models
 {
-    internal class Cliente
+    internal class Customer
     {
         public int Id { get; set; }
-        public Decimal Saldo { get; set; } //Perguntar a professor que tipo de variavel usar.
-
+        public decimal Saldo { get; set; }
+        public User User { get; set; }
     }
 }
-
