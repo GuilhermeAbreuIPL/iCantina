@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace iCantina
+namespace iCantina.Views
 {
-    public partial class Menu_Principal : Form
+    public partial class Teste : Form
     {
-        public Menu_Principal()
+        public Teste()
         {
             InitializeComponent();
         }

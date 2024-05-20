@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace iCantina.Models
 {
-    internal class Professor {
+    internal class User
+    {
         public int Id { get; set; }
-        public string Email { get; set; }
+        public string Name { get; set; }
+        public string Nif {  get; set; }
     }
 }

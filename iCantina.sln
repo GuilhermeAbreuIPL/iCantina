@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.9.34701.34
+VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iCantina", "iCantina\iCantina.csproj", "{560E66CF-3583-4477-AEEF-CD7E63AB3676}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iCantina", "iCantina.csproj", "{C0525415-4764-477D-A10C-1E69B9D8135C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{560E66CF-3583-4477-AEEF-CD7E63AB3676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{560E66CF-3583-4477-AEEF-CD7E63AB3676}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{560E66CF-3583-4477-AEEF-CD7E63AB3676}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{560E66CF-3583-4477-AEEF-CD7E63AB3676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0525415-4764-477D-A10C-1E69B9D8135C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0525415-4764-477D-A10C-1E69B9D8135C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0525415-4764-477D-A10C-1E69B9D8135C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0525415-4764-477D-A10C-1E69B9D8135C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {781B75E3-986D-4C55-8C69-EEC89FB84786}
+		SolutionGuid = {0880078F-5D2C-44D1-855D-C74A78CEC2C5}
 	EndGlobalSection
 EndGlobal
