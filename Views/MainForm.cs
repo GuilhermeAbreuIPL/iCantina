@@ -25,10 +25,17 @@ namespace iCantina
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Teste formToShow = new Teste();
+            User formToShow = new User();
             formToShow.MdiParent = this;
             formToShow.Show();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form_Funcionarios formToShow = new Form_Funcionarios();
+            formToShow.MdiParent = this;
+            formToShow.Show();
         }
     }
 }

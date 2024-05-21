@@ -1,6 +1,6 @@
 ﻿namespace iCantina.Views
 {
-    partial class Teste
+    partial class User
     {
         /// <summary>
         /// Required designer variable.
@@ -40,12 +40,12 @@
             this.txt_user = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.gb_cliente = new System.Windows.Forms.GroupBox();
-            this.rb_estudante = new System.Windows.Forms.RadioButton();
-            this.rb_professor = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_estudante = new System.Windows.Forms.TextBox();
             this.txt_professor = new System.Windows.Forms.TextBox();
+            this.txt_estudante = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rb_professor = new System.Windows.Forms.RadioButton();
+            this.rb_estudante = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBoxUser.SuspendLayout();
             this.groupBoxTipo.SuspendLayout();
@@ -181,17 +181,39 @@
             this.gb_cliente.Text = "Cliente";
             this.gb_cliente.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // rb_estudante
+            // txt_professor
             // 
-            this.rb_estudante.AutoSize = true;
-            this.rb_estudante.Location = new System.Drawing.Point(21, 31);
-            this.rb_estudante.Name = "rb_estudante";
-            this.rb_estudante.Size = new System.Drawing.Size(88, 20);
-            this.rb_estudante.TabIndex = 0;
-            this.rb_estudante.TabStop = true;
-            this.rb_estudante.Text = "Estudante";
-            this.rb_estudante.UseVisualStyleBackColor = true;
-            this.rb_estudante.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.txt_professor.Enabled = false;
+            this.txt_professor.Location = new System.Drawing.Point(78, 155);
+            this.txt_professor.Name = "txt_professor";
+            this.txt_professor.Size = new System.Drawing.Size(146, 22);
+            this.txt_professor.TabIndex = 5;
+            // 
+            // txt_estudante
+            // 
+            this.txt_estudante.Enabled = false;
+            this.txt_estudante.Location = new System.Drawing.Point(109, 63);
+            this.txt_estudante.Name = "txt_estudante";
+            this.txt_estudante.Size = new System.Drawing.Size(115, 22);
+            this.txt_estudante.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Email";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(18, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Nº Estudante";
             // 
             // rb_professor
             // 
@@ -205,39 +227,17 @@
             this.rb_professor.UseVisualStyleBackColor = true;
             this.rb_professor.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
-            // label4
+            // rb_estudante
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Nº Estudante";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Email";
-            // 
-            // txt_estudante
-            // 
-            this.txt_estudante.Enabled = false;
-            this.txt_estudante.Location = new System.Drawing.Point(109, 63);
-            this.txt_estudante.Name = "txt_estudante";
-            this.txt_estudante.Size = new System.Drawing.Size(115, 22);
-            this.txt_estudante.TabIndex = 4;
-            // 
-            // txt_professor
-            // 
-            this.txt_professor.Enabled = false;
-            this.txt_professor.Location = new System.Drawing.Point(78, 155);
-            this.txt_professor.Name = "txt_professor";
-            this.txt_professor.Size = new System.Drawing.Size(146, 22);
-            this.txt_professor.TabIndex = 5;
+            this.rb_estudante.AutoSize = true;
+            this.rb_estudante.Location = new System.Drawing.Point(21, 31);
+            this.rb_estudante.Name = "rb_estudante";
+            this.rb_estudante.Size = new System.Drawing.Size(88, 20);
+            this.rb_estudante.TabIndex = 0;
+            this.rb_estudante.TabStop = true;
+            this.rb_estudante.Text = "Estudante";
+            this.rb_estudante.UseVisualStyleBackColor = true;
+            this.rb_estudante.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // button1
             // 
@@ -249,7 +249,7 @@
             this.button1.Text = "Introduzir User";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // Teste
+            // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -261,7 +261,7 @@
             this.Controls.Add(this.groupBoxUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Teste";
+            this.Name = "User";
             this.Text = " ";
             this.groupBoxUser.ResumeLayout(false);
             this.groupBoxUser.PerformLayout();

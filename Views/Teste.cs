@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace iCantina.Views
 {
-    public partial class Teste : Form
+    public partial class User : Form
     {
-        public Teste()
+        public User()
         {
             InitializeComponent();
 
