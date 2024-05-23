@@ -25,24 +25,28 @@ namespace iCantina
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User formToShow = new User();
-            formToShow.MdiParent = this;
-            formToShow.Show();
+            openNewForm(new User());
 
         }
-
         private void button3_Click(object sender, EventArgs e)
-        {   
-            Form_Cliente formToShow = new Form_Cliente();
-            formToShow.MdiParent = this;
-            formToShow.Show();
+        {
+            openNewForm(new Form_Cliente());
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void openNewForm(Form form)
         {
-            Form_Reservas formToShow = new Form_Reservas();
-            formToShow.MdiParent = this;
-            formToShow.Show();
+            if (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+            }
+            form.MdiParent = this;
+            form.Dock = DockStyle.Fill;
+            form.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            openNewForm(new Form_Reservas());
         }
     }
 }
