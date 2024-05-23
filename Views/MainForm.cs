@@ -28,14 +28,8 @@ namespace iCantina
             openNewForm(new User());
 
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-           openNewForm(new Form_Funcionarios());
-        }
-
         private void button3_Click(object sender, EventArgs e)
-        {   
+        {
             openNewForm(new Form_Cliente());
         }
 
