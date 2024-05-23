@@ -42,11 +42,9 @@ namespace iCantina
             form.MdiParent = this;
             form.Dock = DockStyle.Fill;
             form.Show();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            openNewForm(new Form_Reservas());
+            
+            
         }
-    }
+    } 
 }
