@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace iCantina.Views
 {
-    public partial class Form_Funcionarios : Form
+    public partial class Form_Reservas : Form
     {
-        public Form_Funcionarios()
+        public Form_Reservas()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

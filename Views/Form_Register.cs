@@ -92,5 +92,10 @@ namespace iCantina.Views
                 txt_estudante.Enabled = false;
             }
         }
+
+        private void User_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

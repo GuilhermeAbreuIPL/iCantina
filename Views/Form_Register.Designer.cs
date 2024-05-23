@@ -47,6 +47,7 @@
             this.rb_professor = new System.Windows.Forms.RadioButton();
             this.rb_estudante = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBoxUser.SuspendLayout();
             this.groupBoxTipo.SuspendLayout();
             this.gb_funcionario.SuspendLayout();
@@ -249,11 +250,21 @@
             this.button1.Text = "Introduzir User";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(464, 450);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(209, 16);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "O user foi registado com sucesso!";
+            // 
             // User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 563);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gb_cliente);
             this.Controls.Add(this.gb_funcionario);
@@ -263,6 +274,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "User";
             this.Text = " ";
+            this.Load += new System.EventHandler(this.User_Load);
             this.groupBoxUser.ResumeLayout(false);
             this.groupBoxUser.PerformLayout();
             this.groupBoxTipo.ResumeLayout(false);
@@ -272,6 +284,7 @@
             this.gb_cliente.ResumeLayout(false);
             this.gb_cliente.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -296,5 +309,6 @@
         private System.Windows.Forms.RadioButton rb_professor;
         private System.Windows.Forms.RadioButton rb_estudante;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }

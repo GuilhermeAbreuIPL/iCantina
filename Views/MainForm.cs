@@ -31,16 +31,16 @@ namespace iCantina
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Form_Funcionarios formToShow = new Form_Funcionarios();
+        private void button3_Click(object sender, EventArgs e)
+        {   
+            Form_Cliente formToShow = new Form_Cliente();
             formToShow.MdiParent = this;
             formToShow.Show();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {   
-            Form_Cliente formToShow = new Form_Cliente();
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Form_Reservas formToShow = new Form_Reservas();
             formToShow.MdiParent = this;
             formToShow.Show();
         }
