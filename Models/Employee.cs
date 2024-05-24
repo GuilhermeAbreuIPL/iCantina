@@ -8,7 +8,7 @@ namespace iCantina.Models
 {
     internal class Employee
     {
-        public int Id { get; set; }
+        public int EmployeeID{ get; set; }
         public string Username { get; set; }
         public User User { get; set; }
     }

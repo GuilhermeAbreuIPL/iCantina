@@ -8,7 +8,7 @@ namespace iCantina.Models
 {
     internal class Customer
     {
-        public int Id { get; set; }
+        public int CustomerID { get; set; }
         public decimal Saldo { get; set; }
         public User User { get; set; }
     }
