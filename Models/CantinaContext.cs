@@ -9,9 +9,9 @@ namespace iCantina.Models
 {
     internal class CantinaContext : DbContext
     {
-        public DbSet<User> users { get; set; }
-        public DbSet<Customer> customers { get; set; }
-        public DbSet<Employee> employees { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
 
         //set the name of the database to iCantina
         public CantinaContext() : base("iCantina") { }

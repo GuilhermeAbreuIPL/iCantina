@@ -25,7 +25,7 @@ namespace iCantina
 
         private void button1_Click(object sender, EventArgs e)
         {
-            openNewForm(new User());
+            openNewForm(new Form_RegistarUser());
 
         }
         private void button3_Click(object sender, EventArgs e)

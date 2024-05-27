@@ -1,7 +1,9 @@
-﻿using System;
+﻿using iCantina.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,28 +12,13 @@ using System.Windows.Forms;
 
 namespace iCantina.Views
 {
-    public partial class User : Form
+    public partial class Form_RegistarUser : Form
     {
-        public User()
+        private CantinaContext _cantinaContext;
+        public Form_RegistarUser()
         {
             InitializeComponent();
-
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBoxUser_Enter(object sender, EventArgs e)
-        {
-            
+            _cantinaContext = Program.DbContext;
         }
 
         private void rb_funcionario_CheckedChanged(object sender, EventArgs e)
@@ -58,8 +45,8 @@ namespace iCantina.Views
                 gb_cliente.Enabled = false;
                 rb_professor.Checked = false;
                 rb_estudante.Checked = false;
-                txt_professor.Clear();
-                txt_estudante.Clear();
+                txt_email.Clear();
+                txt_numEstudante.Clear();
 
             }
         }
@@ -68,34 +55,31 @@ namespace iCantina.Views
         {
             if (rb_professor.Checked)
             {
-                txt_professor.Enabled = true;
+                txt_email.Enabled = true;
             }
             else
             {
-                txt_professor.Enabled = false;
+                txt_email.Enabled = false;
             }
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             if(rb_estudante.Checked)
             {
-                txt_estudante.Enabled = true;
+                txt_numEstudante.Enabled = true;
             }
             else
             {
-                txt_estudante.Enabled = false;
+                txt_numEstudante.Enabled = false;
             }
         }
 
-        private void User_Load(object sender, EventArgs e)
+        private void btn_introduzir_Click(object sender, EventArgs e)
         {
-
+            //TODO : Implementar controlador e remover linha de teste.
+            _cantinaContext.Users.Add(new User { Nome = "ola ola", Nif = "123123"});
+            _cantinaContext.SaveChanges();
         }
     }
 }

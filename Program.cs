@@ -17,20 +17,27 @@ namespace iCantina
         static void Main()
         {
             //Inicialização da base dados
-            using (var dbContext = new CantinaContext()) {
-                bool isCreated = dbContext.Database.Exists();
-
-                if (!isCreated)
-                {
-                    Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CantinaContext>());
-                    dbContext.Database.Initialize(true); 
-                }
-            }
+            InitializeDatabase();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
 
+        }
+        
+        //Propriedade static, com o DbContext.
+        public static CantinaContext DbContext { get; private set; }
+
+        private static void InitializeDatabase()
+        {
+            DbContext = new CantinaContext();
+            bool isCreated = DbContext.Database.Exists();
+
+            if (!isCreated)
+            {
+                Database.SetInitializer(new DropCreateDatabaseIfModelChanges<CantinaContext>());
+                DbContext.Database.Initialize(true);
+            }
         }
     }
 }
