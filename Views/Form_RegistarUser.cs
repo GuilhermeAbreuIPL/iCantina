@@ -1,4 +1,5 @@
-﻿using iCantina.Models;
+﻿using iCantina.Controllers;
+using iCantina.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace iCantina.Views
         public Form_RegistarUser()
         {
             InitializeComponent();
+            
             _cantinaContext = Program.DbContext;
         }
 
@@ -77,9 +79,15 @@ namespace iCantina.Views
 
         private void btn_introduzir_Click(object sender, EventArgs e)
         {
-            //TODO : Implementar controlador e remover linha de teste.
-            _cantinaContext.Users.Add(new User { Nome = "ola ola", Nif = "123123"});
-            _cantinaContext.SaveChanges();
+            
+            if(UserController.addUser(_cantinaContext, txt_nome.Text, txt_nif.Text))
+            {
+                lbl_avisos.Text = "Utilizador adicionado com sucesso!";
+            }
+            else
+            {
+                lbl_avisos.Text = "Erro ao adicionar utilizador!";
+            }
         }
     }
 }
