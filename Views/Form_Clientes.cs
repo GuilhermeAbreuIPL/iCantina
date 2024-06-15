@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iCantina.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace iCantina.Views
         public Form_Cliente()
         {
             InitializeComponent();
+            dataGridView1.DataSource = CustomerController.ShowAllClients();
         }
     }
 }
