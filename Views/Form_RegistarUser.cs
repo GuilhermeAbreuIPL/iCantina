@@ -46,21 +46,9 @@ namespace iCantina.Views
                 gb_cliente.Enabled = false;
                 rb_professor.Checked = false;
                 rb_estudante.Checked = false;
-                txt_email.Clear();
+                
                 txt_numEstudante.Clear();
 
-            }
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rb_professor.Checked)
-            {
-                txt_email.Enabled = true;
-            }
-            else
-            {
-                txt_email.Enabled = false;
             }
         }
 
@@ -87,23 +75,11 @@ namespace iCantina.Views
             //Campos Funcionário
             string username;
 
-            //Professor
-            string email;
-
             //Estudante
 
             int num_estudante;
             //Campos Cliente
             decimal saldo = 0;
-
-            
-
-            
-            
-
-
-
-            
 
 
 
@@ -115,7 +91,26 @@ namespace iCantina.Views
             else
             {
                 nome = txt_nome.Text;
-                nif = int.Parse(txt_nif.Text);
+                if(txt_nif.TextLength == 9)
+                {
+                    try
+                    {
+                        nif = int.Parse(txt_nif.Text);
+                    }catch(Exception) 
+                    {
+                        MessageBox.Show("O nif tem de ser um número");
+                        return;
+                    }
+                   
+                    
+                }
+                else
+                {
+                    MessageBox.Show("O nif tem de ter 9 caracteres");
+                    return;
+                }
+                
+                
                 //TODO: Verificação do nif se é numeric ou não.
 
             }
@@ -136,27 +131,35 @@ namespace iCantina.Views
                         MessageBox.Show("O número do estudante tem de estar preenchido");
                         return;
                     }
-                    //UserController.AddUser(_cantinaContext, txt_nome.Text, txt_nif.Text);
-                    //CustomerController.AddCustomer(_cantinaContext);
-                    //StudentController.AddStudent(_cantinaContext, txt_numEstudante.Text);
+                    
+                    if(txt_numEstudante.Text.Length == 7)
+                    {
+                        try
+                        {
+                            num_estudante = int.Parse(txt_numEstudante.Text);
+                        }catch (Exception)
+                        {
+                            MessageBox.Show("O número de estudante tem de ser um número");
+                                return;
+                        }
+                        
+                    }
+                    else
+                    {
+                        MessageBox.Show("O número de estudante tem de ter 7 caracteres");
+                        return;
+                    }
 
-                    //TODO: Verifica se é numeric o numestudante
-                    num_estudante = int.Parse(txt_numEstudante.Text);
-
+                    //Adicionar estudante
                     StudentController.AddStudent(new Student { Nif = nif, Nome = nome, Saldo = saldo, NumEstudante = num_estudante });
-                    MessageBox.Show("Adicionado com sucesso"); //Adicionar estudante
+                     
                     return;
                 }
                 else if (rb_professor.Checked)
                 {
-                    if (String.IsNullOrEmpty(txt_email.Text))
-                    {
-                        MessageBox.Show("O campo de email tem de estar preenchido");
-                        return;
-                    }
-                    MessageBox.Show("Adicionado com sucesso"); //Adicionar Professor
-                    email = txt_email.Text;
-                    ProfessorController.AddProfessor(new Professor { Nif = nif, Nome = nome, Saldo = saldo, Email = email });
+                  
+                    //Adicionar Professor
+                    ProfessorController.AddProfessor(new Professor { Nif = nif, Nome = nome, Saldo = saldo });
                     return;
                 }
                 else
@@ -172,7 +175,8 @@ namespace iCantina.Views
                     MessageBox.Show("É necessário adicionar o username do funcionário");
                     return;
                 }
-                MessageBox.Show("Adicionado com sucesso"); // Adicionar funcionário
+                // Adicionar funcionário
+
                 username = txt_user.Text;
                 EmployeeController.AddEmployee(new Employee { Nif = nif, Nome = nome, Username = username });
                     return;
@@ -183,5 +187,6 @@ namespace iCantina.Views
                  
 
         }
+
     }
 }
