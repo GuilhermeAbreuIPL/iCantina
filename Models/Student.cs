@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace iCantina.Models
 {
-    internal class Employee : User
+    internal class Student : Customer
     {
-        //Funcionário
-        public string Username { get; set; }
-        
+        public int NumEstudante { get; set; }
 
     }
 }

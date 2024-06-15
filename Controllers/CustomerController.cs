@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace iCantina.Controllers
 {
-    internal class CustomerController
+    internal class CustomerController : UserController
     {
-        //TODO: Funções relacionadas ao Cliente
+
     }
 }
