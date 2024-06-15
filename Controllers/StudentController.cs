@@ -11,7 +11,7 @@ namespace iCantina.Controllers
     internal class StudentController : CustomerController
     {
        
-
+        //Publics
         public static void AddStudent(Student student)
         {
             if (IsValid(student))
@@ -22,6 +22,11 @@ namespace iCantina.Controllers
             }
             
             
+        }
+
+        public static List<Student> ShowAll()
+        {
+            return db.Students.ToList();
         }
 
         private static bool IsStudentNumberTaken(int numero)

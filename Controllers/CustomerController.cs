@@ -10,7 +10,7 @@ namespace iCantina.Controllers
 {
     internal class CustomerController : UserController
     {
-        public static List<Customer> ShowAllClients()
+        public static List<Customer> ShowAll()
         {
             return db.Customers.ToList(); 
         }

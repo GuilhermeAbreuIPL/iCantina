@@ -26,6 +26,11 @@ namespace iCantina.Controllers
             
         }
 
+        public static List<Professor> ShowAll()
+        {
+            return db.Professors.ToList();
+        }
+
         private static bool IsValid(Professor professor)
         {
             bool valid = true;

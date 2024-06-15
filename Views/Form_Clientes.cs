@@ -16,8 +16,22 @@ namespace iCantina.Views
         public Form_Cliente()
         {
             InitializeComponent();
-            dataGridView1.DataSource = CustomerController.ShowAllClients();
+            lb_cliente.DataSource = CustomerController.ShowAll();
         }
 
+        private void btn_mostrarTodos_Click(object sender, EventArgs e)
+        {
+            lb_cliente.DataSource = CustomerController.ShowAll();
+        }
+
+        private void btn_mostrarProfessor_Click(object sender, EventArgs e)
+        {
+            lb_cliente.DataSource = ProfessorController.ShowAll();
+        }
+
+        private void btn_mostrarEstudantes_Click(object sender, EventArgs e)
+        {
+            lb_cliente.DataSource = StudentController.ShowAll();
+        }
     }
 }
