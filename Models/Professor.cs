@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iCantina.Controllers
+namespace iCantina.Models
 {
-    internal class CustomerController
+    internal class Professor : Customer
     {
-        //TODO: Funções relacionadas ao Cliente
+        public string Email { get; set; }
+
+        
     }
 }

@@ -9,8 +9,8 @@ namespace iCantina.Models
 {
     internal class User
     {
-        public int UserID { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
-        public string Nif {  get; set; }
+        public int Nif {  get; set; }
     }
 }

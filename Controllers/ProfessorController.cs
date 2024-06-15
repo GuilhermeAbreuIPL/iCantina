@@ -1,21 +1,20 @@
 ﻿using iCantina.Models;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Data.Entity.Core.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace iCantina.Controllers
 {
-    internal class EmployeeController
+    internal class ProfessorController
     {
         private static CantinaContext db = Program.DbContext;
 
-        public static void AddEmployee(Employee employee)
-        { 
-            db.Employees.Add(employee);
+        public static void AddProfessor(Professor professor)
+        {
+            
+            db.Professors.Add(professor);
             db.SaveChanges();
         }
     }
