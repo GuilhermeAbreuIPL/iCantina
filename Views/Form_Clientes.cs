@@ -18,5 +18,6 @@ namespace iCantina.Views
             InitializeComponent();
             dataGridView1.DataSource = CustomerController.ShowAllClients();
         }
+
     }
 }
