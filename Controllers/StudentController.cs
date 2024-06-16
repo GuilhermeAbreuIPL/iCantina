@@ -34,6 +34,55 @@ namespace iCantina.Controllers
             return null;
         }
 
+        public static bool UpdateStudent(int id,string nome, int nif, int numEstudante)
+        {
+           
+            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            if (querry != null)
+            {
+                try 
+                {
+                    querry.Nome = nome;
+                    querry.Nif = nif;
+                    querry.NumEstudante = numEstudante;
+                    db.SaveChanges();
+                    MessageBox.Show("Estudante atualizado com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao atualizar estudante");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool DeleteStudent(int id)
+        {
+            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    db.Students.Remove(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Estudante removido com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao remover estudante");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
 
         public static List<Student> ShowAll()
         {

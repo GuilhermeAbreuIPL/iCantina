@@ -29,6 +29,54 @@ namespace iCantina.Controllers
             }     
         }
 
+        public static bool UpdateProfessor(int id, string nome, int nif)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    querry.Nome = nome;
+                    querry.Nif = nif;
+                    SetEmail(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Professor atualizado com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao atualizar professor");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteProfessor(int id)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    db.Professors.Remove(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Professor removido com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao remover professor");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
+
         public static Professor GetProfessorByNif(int nif)
         {
             Professor querry = db.Professors.FirstOrDefault(p => p.Nif == nif);

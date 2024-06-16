@@ -43,6 +43,8 @@ namespace iCantina.Views
             Professor professor;
             Student student;
             txt_procurarNif.Clear();
+            gb_cliente.Enabled = true;
+            groupBoxUser.Enabled = true;
 
             if(userSelecionado != null)
             {
@@ -56,6 +58,7 @@ namespace iCantina.Views
 
                     FillProfessor(professor);
 
+                    txt_numEstudante.Enabled = false;
                 }
                 else if (userSelecionado.GetType() == typeof(Student))
                 {
@@ -65,6 +68,8 @@ namespace iCantina.Views
 
                     student = (Student)userSelecionado;
                     FillStudent(student);
+
+                    txt_numEstudante.Enabled = true;
                 }
             }            
         }
@@ -172,10 +177,97 @@ namespace iCantina.Views
             {
                 MessageBox.Show("Tem de haver um utilizador selecionado.");
                 return;
+            }   
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            Customer customer = (Customer)lb_cliente.SelectedItem;
+            int num_estudante;
+            int nif;
+            string nome;
+
+            if (String.IsNullOrEmpty(txt_nome.Text))
+            {
+                MessageBox.Show("O nome, tem de estar preenchido.");
+                return;
             }
-            
-                
-                
+
+            nome = txt_nome.Text;
+
+            if (txt_nif.TextLength == 9)
+            {
+                try
+                {
+                    nif = int.Parse(txt_nif.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("O nif tem de ser um número");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("O nif tem de ter 9 caracteres");
+                return;
+            }
+
+            if (StudentController.GetStudentByNif(customer.Nif) != null)
+            {
+                //Update estudante
+                if (txt_numEstudante.Text.Length == 7)
+                {
+                    try
+                    {
+                        num_estudante = int.Parse(txt_numEstudante.Text);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("O número de estudante tem de ser um número");
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("O número de estudante tem de ter 7 caracteres");
+                    return;
+                }
+
+                StudentController.UpdateStudent(customer.Id, nome, nif, num_estudante);
+                lb_cliente.DataSource = null;
+                lb_cliente.DataSource = CustomerController.ShowAll();            }
+
+            if ( ProfessorController.GetProfessorByNif(customer.Nif) != null)
+            {
+                ProfessorController.UpdateProfessor(customer.Id, nome, nif);
+                lb_cliente.DataSource = null;
+                lb_cliente.DataSource = CustomerController.ShowAll();
+            }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            Customer customer = (Customer)lb_cliente.SelectedItem;
+            if (customer == null)
+            {
+                MessageBox.Show("Tem de haver um utilizador selecionado.");
+                return;
+            }
+
+            if (StudentController.GetStudentByNif(customer.Nif) != null)
+            {
+                StudentController.DeleteStudent(customer.Id);
+                lb_cliente.DataSource = null;
+                lb_cliente.DataSource = CustomerController.ShowAll();
+            }
+
+            if (ProfessorController.GetProfessorByNif(customer.Nif) != null)
+            {
+                ProfessorController.DeleteProfessor(customer.Id);
+                lb_cliente.DataSource = null;
+                lb_cliente.DataSource = CustomerController.ShowAll();
+            }
         }
 
         private void FillProfessor(Professor professor)
@@ -225,9 +317,5 @@ namespace iCantina.Views
         {
             txt_numEstudante.Text = numero.ToString();    
         }
-
-        
     }
-
-   
 }
