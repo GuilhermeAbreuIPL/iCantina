@@ -37,35 +37,39 @@ namespace iCantina.Views
 
         private void lb_cliente_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Listbox Click
+            //Listbox Selecionar um item.
 
             var userSelecionado = lb_cliente.SelectedItem;
             Professor professor;
             Student student;
             txt_procurarNif.Clear();
 
-            if (userSelecionado.GetType() == typeof(Professor))
+            if(userSelecionado != null)
             {
-                txt_numEstudante.Clear();
-                rb_professor.Checked = true;
-                
-                
-                professor = (Professor)userSelecionado;
+                if (userSelecionado.GetType() == typeof(Professor))
+                {
+                    txt_numEstudante.Clear();
+                    rb_professor.Checked = true;
 
-                FillProfessor(professor);
 
+                    professor = (Professor)userSelecionado;
+
+                    FillProfessor(professor);
+
+                }
+                else if (userSelecionado.GetType() == typeof(Student))
+                {
+                    txt_email.Clear();
+                    rb_estudante.Checked = true;
+
+
+                    student = (Student)userSelecionado;
+                    FillStudent(student);
+
+
+                }
             }
-            else if (userSelecionado.GetType() == typeof(Student))
-            {
-                txt_email.Clear();
-                rb_estudante.Checked = true;
-
-
-                student = (Student)userSelecionado;
-                FillStudent(student);
-                
-
-            }
+           
 
             
         }
@@ -108,6 +112,8 @@ namespace iCantina.Views
                 {
                     FillStudent(StudentController.GetStudentByNif(nif));
                     MessageBox.Show("Encontrado com sucesso!");
+                    lb_cliente.DataSource = null;
+                    lb_cliente.Items.Add(StudentController.GetStudentByNif(nif)) ; //Adicionado novo
                     return;
                 }
                 
@@ -117,11 +123,64 @@ namespace iCantina.Views
             {
                 FillProfessor(ProfessorController.GetProfessorByNif(nif));
                 MessageBox.Show("Encontrado com sucesso!");
+                lb_cliente.DataSource = null;
+                lb_cliente.Items.Add(ProfessorController.GetProfessorByNif(nif));
                 return;
             }
             
             
 
+        }
+
+        private void btn_addSaldo_Click(object sender, EventArgs e)
+        {
+            decimal saldoAdicionar;
+            try
+            {
+                saldoAdicionar = decimal.Parse(txt_saldo.Text);
+
+            }catch(Exception)
+            {
+                MessageBox.Show("Tem de ser um valor númerico");
+                return;
+            }
+
+            if(saldoAdicionar <= 0)
+            {
+                MessageBox.Show("O valor a inserir não pode ser negativo.");
+                return;
+            }
+
+
+            if(lb_cliente.SelectedItem != null)
+            {
+                var userSelecionado = lb_cliente.SelectedItem;
+                
+                Customer customer = (Customer)lb_cliente.SelectedItem;
+                if(CustomerController.AddSaldo(customer.Nif, saldoAdicionar))
+                {
+                    MessageBox.Show("O saldo foi adicionado com sucesso!");
+                    txt_saldo.Clear();
+                    txt_saldoAtual.Text = CustomerController.GetSaldo(customer.Nif).ToString();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao adicionar o saldo!");
+                    txt_saldo.Clear();
+                    
+                    return;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Tem de haver um utilizador selecionado.");
+                return;
+            }
+            
+                
+                
         }
 
         private void FillProfessor(Professor professor)

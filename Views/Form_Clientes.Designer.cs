@@ -222,6 +222,7 @@
             this.btn_addSaldo.TabIndex = 28;
             this.btn_addSaldo.Text = "Adicionar Saldo";
             this.btn_addSaldo.UseVisualStyleBackColor = true;
+            this.btn_addSaldo.Click += new System.EventHandler(this.btn_addSaldo_Click);
             // 
             // groupBox3
             // 
