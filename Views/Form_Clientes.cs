@@ -65,13 +65,8 @@ namespace iCantina.Views
 
                     student = (Student)userSelecionado;
                     FillStudent(student);
-
-
                 }
-            }
-           
-
-            
+            }            
         }
 
         private void btn_procurar_Click(object sender, EventArgs e)
@@ -205,7 +200,7 @@ namespace iCantina.Views
 
             FillUserText(student.Nome, student.Nif);
             FillCustomerText(student.Saldo);
-            FillStudentText(student.NumEstudante);
+            FillStudentText(Convert.ToInt32(student.NumEstudante));
 
         }
         

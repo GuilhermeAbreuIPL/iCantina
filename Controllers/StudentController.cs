@@ -40,6 +40,7 @@ namespace iCantina.Controllers
             return db.Students.ToList();
         }
 
+        //Privates
         private static bool IsStudentNumberTaken(int numero)
         {
             var querry = db.Students.FirstOrDefault(s => s.NumEstudante == numero);
@@ -53,7 +54,7 @@ namespace iCantina.Controllers
         {
             bool valid = true;
 
-            if(IsStudentNumberTaken(student.NumEstudante))
+            if(IsStudentNumberTaken(Convert.ToInt32(student.NumEstudante)))
             {
                 MessageBox.Show("Número de estudante já existe.");
                 valid = false;

@@ -16,14 +16,17 @@ namespace iCantina.Controllers
 
         public static void AddProfessor(Professor professor)
         {
-            if (IsValid(professor))
+            try 
             {
                 SetEmail(professor);
                 db.Professors.Add(professor);
                 db.SaveChanges();
                 MessageBox.Show("Adicionado com sucesso!");
             }
-            
+            catch (Exception) 
+            {
+                MessageBox.Show("Erro ao adicionar!");
+            }     
         }
 
         public static Professor GetProfessorByNif(int nif)
@@ -41,18 +44,7 @@ namespace iCantina.Controllers
             return db.Professors.ToList();
         }
 
-        private static bool IsValid(Professor professor)
-        {
-            bool valid = true;
-
-            if (IsNifTaken(professor.Nif))
-            {
-                MessageBox.Show("Nif já existe.");
-                valid = false;
-            }
-
-            return valid;
-        }
+       
 
         private static void SetEmail(Professor professor)
         {
