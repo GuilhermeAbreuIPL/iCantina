@@ -14,5 +14,17 @@ namespace iCantina.Controllers
         {
             return db.Customers.ToList(); 
         }
+
+        public static Customer GetCustomerByNif(int nif) 
+        {
+            Customer querry = db.Customers.FirstOrDefault(s => s.Nif == nif);
+            if (querry != null)
+            {
+                return querry;
+            }
+            
+            return null;
+            
+        }
     }
 }

@@ -24,6 +24,17 @@ namespace iCantina.Controllers
             
         }
 
+        public static Student GetStudentByNif(int nif) 
+        {
+            Student querry = db.Students.FirstOrDefault(s => s.Nif == nif);
+            if (querry != null)
+            {
+                return querry;
+            }
+            return null;
+        }
+
+
         public static List<Student> ShowAll()
         {
             return db.Students.ToList();

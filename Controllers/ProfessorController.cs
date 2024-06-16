@@ -26,6 +26,16 @@ namespace iCantina.Controllers
             
         }
 
+        public static Professor GetProfessorByNif(int nif)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Nif == nif);
+            if (querry != null)
+            {
+                return querry;
+            }
+            return null;
+        }
+
         public static List<Professor> ShowAll()
         {
             return db.Professors.ToList();
