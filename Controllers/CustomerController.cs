@@ -17,7 +17,7 @@ namespace iCantina.Controllers
 
         public static Customer GetCustomerByNif(int nif) 
         {
-            Customer querry = db.Customers.FirstOrDefault(s => s.Nif == nif);
+            Customer querry = db.Customers.FirstOrDefault(c => c.Nif == nif);
             if (querry != null)
             {
                 return querry;
@@ -25,6 +25,32 @@ namespace iCantina.Controllers
             
             return null;
             
+        }
+
+        public static bool AddSaldo(int nif, decimal saldo)
+        {
+            if(GetCustomerByNif(nif) != null)
+            {
+                Customer customer = GetCustomerByNif(nif);
+                customer.Saldo += saldo;
+                db.SaveChanges();
+                
+                return true;
+            }
+
+            return false;
+            
+        }
+
+        public static decimal GetSaldo(int nif)
+        {
+            Customer querry = db.Customers.FirstOrDefault(c => c.Nif == nif);
+            if (querry != null)
+            {
+                return querry.Saldo;
+            }
+
+            return -1;
         }
     }
 }
