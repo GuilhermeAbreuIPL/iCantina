@@ -80,6 +80,7 @@
             this.btn_delete.TabIndex = 7;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_editar
             // 
@@ -89,6 +90,7 @@
             this.btn_editar.TabIndex = 6;
             this.btn_editar.Text = "Editar";
             this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // cb_editAtivo
             // 
@@ -166,6 +168,7 @@
             this.btn_criar.TabIndex = 6;
             this.btn_criar.Text = "Criar";
             this.btn_criar.UseVisualStyleBackColor = true;
+            this.btn_criar.Click += new System.EventHandler(this.btn_criar_Click);
             // 
             // cb_criarAtivo
             // 
@@ -211,6 +214,7 @@
             this.lb_extra.Name = "lb_extra";
             this.lb_extra.Size = new System.Drawing.Size(221, 388);
             this.lb_extra.TabIndex = 21;
+            this.lb_extra.SelectedIndexChanged += new System.EventHandler(this.lb_extra_SelectedIndexChanged);
             // 
             // Form_Extras
             // 
