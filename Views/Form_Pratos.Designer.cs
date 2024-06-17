@@ -76,17 +76,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar";
             // 
-            // btn_criar
-            // 
-            this.btn_criar.Location = new System.Drawing.Point(137, 112);
-            this.btn_criar.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_criar.Name = "btn_criar";
-            this.btn_criar.Size = new System.Drawing.Size(56, 19);
-            this.btn_criar.TabIndex = 6;
-            this.btn_criar.Text = "Criar";
-            this.btn_criar.UseVisualStyleBackColor = true;
-            this.btn_criar.Click += new System.EventHandler(this.btn_criar_Click);
-            // 
             // cb_criarAtivo
             // 
             this.cb_criarAtivo.AutoSize = true;
@@ -168,30 +157,7 @@
             this.groupBox2.Size = new System.Drawing.Size(213, 156);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Criar";
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(146, 119);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(56, 19);
-            this.btn_delete.TabIndex = 7;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Location = new System.Drawing.Point(85, 119);
-            this.btn_editar.Margin = new System.Windows.Forms.Padding(2);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(56, 19);
-            this.btn_editar.TabIndex = 6;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
-            // 
+            this.groupBox2.Text = "Criar";           // 
             // cb_editAtivo
             // 
             this.cb_editAtivo.AutoSize = true;
