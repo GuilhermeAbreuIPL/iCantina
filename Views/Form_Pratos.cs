@@ -16,7 +16,7 @@ namespace iCantina.Views
         {
             InitializeComponent();
 
-            cb_tipo.SelectedIndex = 1;
+            cb_criarTipo.SelectedIndex = 1;
         }
 
     }
