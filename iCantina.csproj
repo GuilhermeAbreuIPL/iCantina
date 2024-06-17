@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ExtraController.cs" />
     <Compile Include="Controllers\MealController.cs" />
     <Compile Include="Controllers\ProfessorController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
