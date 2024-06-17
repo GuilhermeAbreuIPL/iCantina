@@ -30,6 +30,7 @@
         {
             this.lb_pratos = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_criar = new System.Windows.Forms.Button();
             this.cb_criarAtivo = new System.Windows.Forms.CheckBox();
             this.cb_criarTipo = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -37,14 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
             this.cb_editAtivo = new System.Windows.Forms.CheckBox();
             this.cb_editTipo = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txt_editDescricao = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_criar = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.btn_delete = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,15 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar";
+            // 
+            // btn_criar
+            // 
+            this.btn_criar.Location = new System.Drawing.Point(183, 138);
+            this.btn_criar.Name = "btn_criar";
+            this.btn_criar.Size = new System.Drawing.Size(75, 23);
+            this.btn_criar.TabIndex = 6;
+            this.btn_criar.Text = "Criar";
+            this.btn_criar.UseVisualStyleBackColor = true;
             // 
             // cb_criarAtivo
             // 
@@ -148,6 +157,24 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Criar";
             // 
+            // btn_delete
+            // 
+            this.btn_delete.Location = new System.Drawing.Point(194, 147);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(75, 23);
+            this.btn_delete.TabIndex = 7;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.Location = new System.Drawing.Point(113, 147);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(75, 23);
+            this.btn_editar.TabIndex = 6;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            // 
             // cb_editAtivo
             // 
             this.cb_editAtivo.AutoSize = true;
@@ -196,33 +223,6 @@
             this.label5.Size = new System.Drawing.Size(72, 16);
             this.label5.TabIndex = 1;
             this.label5.Text = "Descrição:";
-            // 
-            // btn_criar
-            // 
-            this.btn_criar.Location = new System.Drawing.Point(183, 138);
-            this.btn_criar.Name = "btn_criar";
-            this.btn_criar.Size = new System.Drawing.Size(75, 23);
-            this.btn_criar.TabIndex = 6;
-            this.btn_criar.Text = "Criar";
-            this.btn_criar.UseVisualStyleBackColor = true;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Location = new System.Drawing.Point(113, 147);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(75, 23);
-            this.btn_editar.TabIndex = 6;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(194, 147);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 7;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
             // 
             // Form_Pratos
             // 
