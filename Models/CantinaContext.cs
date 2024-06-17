@@ -27,7 +27,20 @@ namespace iCantina.Models
 
             modelBuilder.Entity<Student>()
                 .Property(s => s.NumEstudante)
-                .IsOptional();  
+                .IsOptional();
+
+
+            // Configure Username field to be unique if not null
+            modelBuilder.Entity<Employee>()
+                .Property(e => e.Username)
+                .IsOptional()
+                .HasMaxLength(450);
+
+            // Create unique index for Username
+            modelBuilder.Entity<Employee>()
+                .HasIndex(e => e.Username)
+                .IsUnique()
+                .HasName("IX_Username");
         }
     }
 }

@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202406162214332_AddUniqueConstraintOnNumEstudante.designer.cs">
       <DependentUpon>202406162214332_AddUniqueConstraintOnNumEstudante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202406170117543_AddUniqueIndexToUsername.cs" />
+    <Compile Include="Migrations\202406170117543_AddUniqueIndexToUsername.designer.cs">
+      <DependentUpon>202406170117543_AddUniqueIndexToUsername.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -107,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202406162214332_AddUniqueConstraintOnNumEstudante.resx">
       <DependentUpon>202406162214332_AddUniqueConstraintOnNumEstudante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406170117543_AddUniqueIndexToUsername.resx">
+      <DependentUpon>202406170117543_AddUniqueIndexToUsername.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
