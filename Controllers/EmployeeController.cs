@@ -7,13 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace iCantina.Controllers
 {
     internal class EmployeeController : UserController
     {
+        public static List<Employee> ShowAll()
+        {
+            return db.Employees.ToList();
+        }
         
-
         public static void AddEmployee(Employee employee)
         {
 
@@ -26,7 +30,38 @@ namespace iCantina.Controllers
             
         }
 
+        public static void UpdateEmployee(int id, string nome, int nif, string username)
+        {
+            Employee querry = db.Employees.FirstOrDefault(e => e.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    querry.Nome = nome;
+                    querry.Nif = nif;
+                    querry.Username = username;
+                    db.SaveChanges();
+                    MessageBox.Show("Funcionário atualizado com sucesso!");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao atualizar funcionário");
+                    db.Dispose();
+                    db = new CantinaContext();
+                }
+            }
+        }
 
+        public static void DeleteEmployee(int id)
+        {
+            Employee querry = db.Employees.FirstOrDefault(e => e.Id == id);
+            if (querry != null)
+            {
+                db.Employees.Remove(querry);
+                db.SaveChanges();
+                MessageBox.Show("Funcionário removido com sucesso!");
+            }
+        }
 
         private static bool isUsernameTaken(Employee employee)
         {

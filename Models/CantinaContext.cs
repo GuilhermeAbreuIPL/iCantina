@@ -27,7 +27,7 @@ namespace iCantina.Models
 
             modelBuilder.Entity<Student>()
                 .Property(s => s.NumEstudante)
-                .IsOptional();
+                .IsOptional();  
         }
     }
 }

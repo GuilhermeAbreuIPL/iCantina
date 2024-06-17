@@ -60,24 +60,17 @@
             this.lb_cliente = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tp_funcionarios = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_username = new System.Windows.Forms.TextBox();
+            this.txt_nifFuncionario = new System.Windows.Forms.TextBox();
+            this.txt_nomeFuncionario = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.listBox2 = new System.Windows.Forms.ListBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lb_funcionarios = new System.Windows.Forms.ListBox();
+            this.btn_deleteFuncionario = new System.Windows.Forms.Button();
+            this.btn_editarFuncionario = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tp_cliente.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -85,17 +78,13 @@
             this.gb_cliente.SuspendLayout();
             this.groupBoxUser.SuspendLayout();
             this.tp_funcionarios.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tp_cliente);
             this.tabControl1.Controls.Add(this.tp_funcionarios);
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(4, 2);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
@@ -305,7 +294,7 @@
             // 
             this.txt_numEstudante.Enabled = false;
             this.txt_numEstudante.Location = new System.Drawing.Point(105, 71);
-            this.txt_numEstudante.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_numEstudante.Margin = new System.Windows.Forms.Padding(4);
             this.txt_numEstudante.MaxLength = 7;
             this.txt_numEstudante.Name = "txt_numEstudante";
             this.txt_numEstudante.Size = new System.Drawing.Size(125, 22);
@@ -365,7 +354,7 @@
             // txt_nif
             // 
             this.txt_nif.Location = new System.Drawing.Point(93, 60);
-            this.txt_nif.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_nif.Margin = new System.Windows.Forms.Padding(4);
             this.txt_nif.MaxLength = 9;
             this.txt_nif.Name = "txt_nif";
             this.txt_nif.Size = new System.Drawing.Size(137, 22);
@@ -433,7 +422,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(376, 14);
+            this.label1.Location = new System.Drawing.Point(383, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 32);
             this.label1.TabIndex = 18;
@@ -441,11 +430,10 @@
             // 
             // tp_funcionarios
             // 
-            this.tp_funcionarios.Controls.Add(this.groupBox1);
+            this.tp_funcionarios.Controls.Add(this.btn_editarFuncionario);
+            this.tp_funcionarios.Controls.Add(this.btn_deleteFuncionario);
+            this.tp_funcionarios.Controls.Add(this.lb_funcionarios);
             this.tp_funcionarios.Controls.Add(this.groupBox2);
-            this.tp_funcionarios.Controls.Add(this.button6);
-            this.tp_funcionarios.Controls.Add(this.button7);
-            this.tp_funcionarios.Controls.Add(this.listBox2);
             this.tp_funcionarios.Controls.Add(this.label10);
             this.tp_funcionarios.Location = new System.Drawing.Point(4, 25);
             this.tp_funcionarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -456,107 +444,51 @@
             this.tp_funcionarios.Text = "Funcionarios";
             this.tp_funcionarios.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(477, 354);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(227, 126);
-            this.groupBox1.TabIndex = 29;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Eliminar";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Red;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.Control;
-            this.button4.Location = new System.Drawing.Point(125, 87);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(96, 33);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Delete";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(9, 46);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(177, 22);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 27);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 16);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Eliminar User:";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button5);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.txt_username);
+            this.groupBox2.Controls.Add(this.txt_nifFuncionario);
+            this.groupBox2.Controls.Add(this.txt_nomeFuncionario);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(477, 112);
+            this.groupBox2.Location = new System.Drawing.Point(420, 85);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(227, 210);
+            this.groupBox2.Size = new System.Drawing.Size(257, 161);
             this.groupBox2.TabIndex = 28;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Editar Funcionário";
             // 
-            // button5
+            // txt_username
             // 
-            this.button5.Location = new System.Drawing.Point(9, 143);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(197, 31);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Editar";
-            this.button5.UseVisualStyleBackColor = true;
+            this.txt_username.Location = new System.Drawing.Point(103, 117);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Size = new System.Drawing.Size(121, 22);
+            this.txt_username.TabIndex = 5;
             // 
-            // textBox2
+            // txt_nifFuncionario
             // 
-            this.textBox2.Location = new System.Drawing.Point(85, 94);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 22);
-            this.textBox2.TabIndex = 5;
+            this.txt_nifFuncionario.Location = new System.Drawing.Point(103, 75);
+            this.txt_nifFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_nifFuncionario.Name = "txt_nifFuncionario";
+            this.txt_nifFuncionario.Size = new System.Drawing.Size(121, 22);
+            this.txt_nifFuncionario.TabIndex = 4;
             // 
-            // textBox3
+            // txt_nomeFuncionario
             // 
-            this.textBox3.Location = new System.Drawing.Point(85, 60);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 22);
-            this.textBox3.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(85, 30);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(121, 22);
-            this.textBox4.TabIndex = 3;
+            this.txt_nomeFuncionario.Location = new System.Drawing.Point(103, 37);
+            this.txt_nomeFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_nomeFuncionario.Name = "txt_nomeFuncionario";
+            this.txt_nomeFuncionario.Size = new System.Drawing.Size(121, 22);
+            this.txt_nomeFuncionario.TabIndex = 3;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(5, 63);
+            this.label7.Location = new System.Drawing.Point(23, 78);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 16);
             this.label7.TabIndex = 2;
@@ -565,7 +497,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(5, 33);
+            this.label8.Location = new System.Drawing.Point(23, 40);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(47, 16);
             this.label8.TabIndex = 1;
@@ -574,73 +506,54 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(5, 94);
+            this.label9.Location = new System.Drawing.Point(23, 117);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 16);
             this.label9.TabIndex = 0;
             this.label9.Text = "Username:";
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(312, 442);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 27;
-            this.button6.Text = "Update ";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(223, 442);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 26;
-            this.button7.Text = "Select";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // listBox2
-            // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.ItemHeight = 16;
-            this.listBox2.Location = new System.Drawing.Point(223, 114);
-            this.listBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(164, 308);
-            this.listBox2.TabIndex = 25;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(379, 50);
+            this.label10.Location = new System.Drawing.Point(368, 20);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(175, 32);
             this.label10.TabIndex = 24;
             this.label10.Text = "Funcionário";
             // 
-            // tabPage1
+            // lb_funcionarios
             // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(927, 532);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.lb_funcionarios.FormattingEnabled = true;
+            this.lb_funcionarios.ItemHeight = 16;
+            this.lb_funcionarios.Location = new System.Drawing.Point(162, 75);
+            this.lb_funcionarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lb_funcionarios.Name = "lb_funcionarios";
+            this.lb_funcionarios.Size = new System.Drawing.Size(221, 388);
+            this.lb_funcionarios.TabIndex = 35;
+            this.lb_funcionarios.SelectedIndexChanged += new System.EventHandler(this.lb_funcionarios_SelectedIndexChanged);
             // 
-            // dataGridView1
+            // btn_deleteFuncionario
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(23, 37);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(877, 353);
-            this.dataGridView1.TabIndex = 0;
+            this.btn_deleteFuncionario.Location = new System.Drawing.Point(420, 312);
+            this.btn_deleteFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_deleteFuncionario.Name = "btn_deleteFuncionario";
+            this.btn_deleteFuncionario.Size = new System.Drawing.Size(257, 34);
+            this.btn_deleteFuncionario.TabIndex = 36;
+            this.btn_deleteFuncionario.Text = "Delete";
+            this.btn_deleteFuncionario.UseVisualStyleBackColor = true;
+            this.btn_deleteFuncionario.Click += new System.EventHandler(this.btn_deleteFuncionario_Click);
+            // 
+            // btn_editarFuncionario
+            // 
+            this.btn_editarFuncionario.Location = new System.Drawing.Point(420, 262);
+            this.btn_editarFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_editarFuncionario.Name = "btn_editarFuncionario";
+            this.btn_editarFuncionario.Size = new System.Drawing.Size(257, 34);
+            this.btn_editarFuncionario.TabIndex = 37;
+            this.btn_editarFuncionario.Text = "Editar";
+            this.btn_editarFuncionario.UseVisualStyleBackColor = true;
+            this.btn_editarFuncionario.Click += new System.EventHandler(this.btn_editarFuncionario_Click);
             // 
             // Form_Cliente
             // 
@@ -665,12 +578,8 @@
             this.groupBoxUser.PerformLayout();
             this.tp_funcionarios.ResumeLayout(false);
             this.tp_funcionarios.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -684,24 +593,14 @@
         private System.Windows.Forms.Button btn_select;
         private System.Windows.Forms.ListBox lb_cliente;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_username;
+        private System.Windows.Forms.TextBox txt_nifFuncionario;
+        private System.Windows.Forms.TextBox txt_nomeFuncionario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ListBox listBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox gb_cliente;
@@ -727,5 +626,8 @@
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Button btn_mostrarProfessor;
         private System.Windows.Forms.Button btn_mostrarEstudantes;
+        private System.Windows.Forms.ListBox lb_funcionarios;
+        private System.Windows.Forms.Button btn_editarFuncionario;
+        private System.Windows.Forms.Button btn_deleteFuncionario;
     }
 }

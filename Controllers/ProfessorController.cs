@@ -26,6 +26,8 @@ namespace iCantina.Controllers
             catch (Exception) 
             {
                 MessageBox.Show("Erro ao adicionar!");
+                db.Dispose();
+                db = new CantinaContext();
             }     
         }
 

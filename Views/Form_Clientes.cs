@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace iCantina.Views
 {
@@ -18,6 +19,7 @@ namespace iCantina.Views
         {
             InitializeComponent();
             lb_cliente.DataSource = CustomerController.ShowAll();
+            lb_funcionarios.DataSource = EmployeeController.ShowAll();
         }
 
         private void btn_mostrarTodos_Click(object sender, EventArgs e)
@@ -270,6 +272,79 @@ namespace iCantina.Views
             }
         }
 
+        private void lb_funcionarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var userSelecionado = lb_funcionarios.SelectedItem;
+            Employee employee;
+
+            if (userSelecionado != null)
+            {
+                employee = (Employee)userSelecionado;
+                FillUserFuncionarioText(employee.Nome, employee.Nif, employee.Username);
+            }
+        }
+
+        private void btn_editarFuncionario_Click(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)lb_funcionarios.SelectedItem;
+            int nif;
+            string nome;
+            string username;
+
+            if (String.IsNullOrEmpty(txt_nomeFuncionario.Text))
+            {
+                MessageBox.Show("O nome, tem de estar preenchido.");
+                return;
+            }
+
+            nome = txt_nomeFuncionario.Text;
+
+            if (txt_nifFuncionario.TextLength == 9)
+            {
+                try
+                {
+                    nif = int.Parse(txt_nifFuncionario.Text);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("O nif tem de ser um número");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("O nif tem de ter 9 caracteres");
+                return;
+            }
+
+            if (String.IsNullOrEmpty(txt_username.Text))
+            {
+                MessageBox.Show("O username, tem de estar preenchido.");
+                return;
+            }
+
+            username = txt_username.Text;
+
+            EmployeeController.UpdateEmployee(employee.Id, nome, nif, username);
+            lb_funcionarios.DataSource = null;
+            lb_funcionarios.DataSource = EmployeeController.ShowAll();
+
+        }
+
+        private void btn_deleteFuncionario_Click(object sender, EventArgs e)
+        {
+            Employee employee = (Employee)lb_funcionarios.SelectedItem;
+            if (employee == null)
+            {
+                MessageBox.Show("Tem de haver um utilizador selecionado.");
+                return;
+            }
+
+            EmployeeController.DeleteEmployee(employee.Id);
+            lb_funcionarios.DataSource = null;
+            lb_funcionarios.DataSource = EmployeeController.ShowAll();
+        }
+
         private void FillProfessor(Professor professor)
         {
             txt_numEstudante.Clear();
@@ -316,6 +391,13 @@ namespace iCantina.Views
         private void FillStudentText(int numero) 
         {
             txt_numEstudante.Text = numero.ToString();    
+        }
+
+        private void FillUserFuncionarioText(string nome, int nif, string username)
+        {
+            txt_nomeFuncionario.Text = nome;
+            txt_nifFuncionario.Text = nif.ToString();
+            txt_username.Text = username;
         }
     }
 }
