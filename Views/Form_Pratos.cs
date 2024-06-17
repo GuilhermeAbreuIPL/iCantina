@@ -40,6 +40,9 @@ namespace iCantina.Views
                 MessageBox.Show("Prato adicionado com sucesso!");
                 lb_pratos.DataSource = null;
                 lb_pratos.DataSource = MealController.ShowAll();
+                txt_criarDescricao.Clear();
+                cb_criarTipo.SelectedIndex = 0;
+                cb_criarAtivo.Checked = false;
                 return;
             }else
             {
@@ -100,7 +103,7 @@ namespace iCantina.Views
             
         }
 
-        private void btn_delete_Click(object sender, EventArgs e)
+        private void btn_delete_Click_1(object sender, EventArgs e)
         {
 
             if(lb_pratos.SelectedItem != null)
@@ -111,6 +114,10 @@ namespace iCantina.Views
                     MessageBox.Show("Prato removido com sucesso!");
                     lb_pratos.DataSource = null;
                     lb_pratos.DataSource = MealController.ShowAll();
+                    txt_editDescricao.Clear();
+                    cb_editTipo.SelectedIndex = 0;
+                    cb_editAtivo.Checked = false;
+
                     return;
                 }
                 else
@@ -125,5 +132,6 @@ namespace iCantina.Views
             }
 
         }
+
     }
 }

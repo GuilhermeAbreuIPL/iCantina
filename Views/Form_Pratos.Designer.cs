@@ -80,11 +80,12 @@
             // btn_criar
             // 
             this.btn_criar.Location = new System.Drawing.Point(177, 142);
-            this.btn_criar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_criar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_criar.Name = "btn_criar";
             this.btn_criar.Size = new System.Drawing.Size(100, 28);
             this.btn_criar.TabIndex = 0;
             this.btn_criar.Text = "Criar";
+            this.btn_criar.Click += new System.EventHandler(this.btn_criar_Click);
             // 
             // cb_criarAtivo
             // 
@@ -169,20 +170,22 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(177, 158);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(4);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(100, 28);
             this.btn_delete.TabIndex = 0;
             this.btn_delete.Text = "Delete";
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click_1);
             // 
             // btn_editar
             // 
             this.btn_editar.Location = new System.Drawing.Point(69, 158);
-            this.btn_editar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_editar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(100, 28);
             this.btn_editar.TabIndex = 1;
             this.btn_editar.Text = "Editar";
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // cb_editAtivo
             // 
