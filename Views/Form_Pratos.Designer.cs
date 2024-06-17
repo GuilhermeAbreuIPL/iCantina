@@ -52,11 +52,12 @@
             // lb_pratos
             // 
             this.lb_pratos.FormattingEnabled = true;
-            this.lb_pratos.ItemHeight = 16;
-            this.lb_pratos.Location = new System.Drawing.Point(224, 74);
+            this.lb_pratos.Location = new System.Drawing.Point(168, 60);
+            this.lb_pratos.Margin = new System.Windows.Forms.Padding(2);
             this.lb_pratos.Name = "lb_pratos";
-            this.lb_pratos.Size = new System.Drawing.Size(221, 388);
+            this.lb_pratos.Size = new System.Drawing.Size(167, 316);
             this.lb_pratos.TabIndex = 0;
+            this.lb_pratos.SelectedIndexChanged += new System.EventHandler(this.lb_pratos_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -66,28 +67,22 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_criarDescricao);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(486, 74);
+            this.groupBox1.Location = new System.Drawing.Point(364, 60);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(284, 176);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(213, 143);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar";
             // 
-            // btn_criar
-            // 
-            this.btn_criar.Location = new System.Drawing.Point(183, 138);
-            this.btn_criar.Name = "btn_criar";
-            this.btn_criar.Size = new System.Drawing.Size(75, 23);
-            this.btn_criar.TabIndex = 6;
-            this.btn_criar.Text = "Criar";
-            this.btn_criar.UseVisualStyleBackColor = true;
-            // 
             // cb_criarAtivo
             // 
             this.cb_criarAtivo.AutoSize = true;
-            this.cb_criarAtivo.Location = new System.Drawing.Point(9, 138);
+            this.cb_criarAtivo.Location = new System.Drawing.Point(7, 112);
+            this.cb_criarAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_criarAtivo.Name = "cb_criarAtivo";
-            this.cb_criarAtivo.Size = new System.Drawing.Size(59, 20);
+            this.cb_criarAtivo.Size = new System.Drawing.Size(50, 17);
             this.cb_criarAtivo.TabIndex = 5;
             this.cb_criarAtivo.Text = "Ativo";
             this.cb_criarAtivo.UseVisualStyleBackColor = true;
@@ -100,34 +95,38 @@
             "Carne",
             "Peixe",
             "Vegetariano"});
-            this.cb_criarTipo.Location = new System.Drawing.Point(84, 84);
+            this.cb_criarTipo.Location = new System.Drawing.Point(63, 68);
+            this.cb_criarTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_criarTipo.Name = "cb_criarTipo";
-            this.cb_criarTipo.Size = new System.Drawing.Size(174, 24);
+            this.cb_criarTipo.Size = new System.Drawing.Size(132, 21);
             this.cb_criarTipo.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 87);
+            this.label3.Location = new System.Drawing.Point(4, 71);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 16);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 3;
             this.label3.Text = "Tipo:";
             // 
             // txt_criarDescricao
             // 
-            this.txt_criarDescricao.Location = new System.Drawing.Point(84, 21);
+            this.txt_criarDescricao.Location = new System.Drawing.Point(63, 17);
+            this.txt_criarDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txt_criarDescricao.Multiline = true;
             this.txt_criarDescricao.Name = "txt_criarDescricao";
-            this.txt_criarDescricao.Size = new System.Drawing.Size(174, 48);
+            this.txt_criarDescricao.Size = new System.Drawing.Size(132, 40);
             this.txt_criarDescricao.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 28);
+            this.label2.Location = new System.Drawing.Point(4, 23);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Descrição:";
             // 
@@ -135,9 +134,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(413, 22);
+            this.label1.Location = new System.Drawing.Point(310, 18);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(102, 32);
+            this.label1.Size = new System.Drawing.Size(81, 26);
             this.label1.TabIndex = 19;
             this.label1.Text = "Pratos";
             // 
@@ -150,37 +150,21 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txt_editDescricao);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(486, 270);
+            this.groupBox2.Location = new System.Drawing.Point(364, 219);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(284, 192);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(213, 156);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Criar";
-            // 
-            // btn_delete
-            // 
-            this.btn_delete.Location = new System.Drawing.Point(194, 147);
-            this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(75, 23);
-            this.btn_delete.TabIndex = 7;
-            this.btn_delete.Text = "Delete";
-            this.btn_delete.UseVisualStyleBackColor = true;
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Location = new System.Drawing.Point(113, 147);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(75, 23);
-            this.btn_editar.TabIndex = 6;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            // 
+            this.groupBox2.Text = "Criar";           // 
             // cb_editAtivo
             // 
             this.cb_editAtivo.AutoSize = true;
-            this.cb_editAtivo.Location = new System.Drawing.Point(9, 138);
+            this.cb_editAtivo.Location = new System.Drawing.Point(7, 112);
+            this.cb_editAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_editAtivo.Name = "cb_editAtivo";
-            this.cb_editAtivo.Size = new System.Drawing.Size(59, 20);
+            this.cb_editAtivo.Size = new System.Drawing.Size(50, 17);
             this.cb_editAtivo.TabIndex = 5;
             this.cb_editAtivo.Text = "Ativo";
             this.cb_editAtivo.UseVisualStyleBackColor = true;
@@ -193,47 +177,52 @@
             "Carne",
             "Peixe",
             "Vegetariano"});
-            this.cb_editTipo.Location = new System.Drawing.Point(84, 84);
+            this.cb_editTipo.Location = new System.Drawing.Point(63, 68);
+            this.cb_editTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_editTipo.Name = "cb_editTipo";
-            this.cb_editTipo.Size = new System.Drawing.Size(174, 24);
+            this.cb_editTipo.Size = new System.Drawing.Size(132, 21);
             this.cb_editTipo.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 87);
+            this.label4.Location = new System.Drawing.Point(4, 71);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(38, 16);
+            this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Tipo:";
             // 
             // txt_editDescricao
             // 
-            this.txt_editDescricao.Location = new System.Drawing.Point(84, 21);
+            this.txt_editDescricao.Location = new System.Drawing.Point(63, 17);
+            this.txt_editDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txt_editDescricao.Multiline = true;
             this.txt_editDescricao.Name = "txt_editDescricao";
-            this.txt_editDescricao.Size = new System.Drawing.Size(174, 48);
+            this.txt_editDescricao.Size = new System.Drawing.Size(132, 40);
             this.txt_editDescricao.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 28);
+            this.label5.Location = new System.Drawing.Point(4, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 16);
+            this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 1;
             this.label5.Text = "Descrição:";
             // 
             // Form_Pratos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 563);
+            this.ClientSize = new System.Drawing.Size(704, 457);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lb_pratos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Pratos";
             this.Text = "Form_Pratos";
             this.groupBox1.ResumeLayout(false);
