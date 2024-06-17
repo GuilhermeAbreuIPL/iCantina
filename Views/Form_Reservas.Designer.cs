@@ -30,6 +30,12 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,21 +52,16 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.listBox5 = new System.Windows.Forms.ListBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listBox5 = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listBox4 = new System.Windows.Forms.ListBox();
+            this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
+            this.btn_retirar = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btn_retirar);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.listBox1);
@@ -103,6 +105,59 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Criar Reserva";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(352, 463);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(246, 16);
+            this.label10.TabIndex = 26;
+            this.label10.Text = "O PDF da fatura foi criado com sucesso!";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(352, 432);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(224, 16);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "A reserva foi efetuada com sucesso!";
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(520, 87);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(163, 276);
+            this.listBox1.TabIndex = 24;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(14, 318);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 23;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(516, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 20);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Extras:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(326, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(63, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Pratos:";
             // 
             // button4
             // 
@@ -140,7 +195,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(700, 158);
+            this.label2.Location = new System.Drawing.Point(700, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 17;
@@ -150,7 +205,7 @@
             // 
             this.listBox3.FormattingEnabled = true;
             this.listBox3.ItemHeight = 16;
-            this.listBox3.Location = new System.Drawing.Point(704, 191);
+            this.listBox3.Location = new System.Drawing.Point(704, 153);
             this.listBox3.Name = "listBox3";
             this.listBox3.Size = new System.Drawing.Size(197, 276);
             this.listBox3.TabIndex = 16;
@@ -266,83 +321,32 @@
             this.tabPage2.Text = "Ver Reservas";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // label12
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(326, 64);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 20);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Pratos:";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(628, 362);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 16);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "Concluido!";
             // 
-            // label6
+            // label11
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(516, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(62, 20);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Extras:";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(628, 387);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(193, 16);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "A sua reserva já foi consumida!";
             // 
-            // monthCalendar1
+            // button5
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(14, 318);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 23;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(520, 87);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(163, 276);
-            this.listBox1.TabIndex = 24;
-            // 
-            // monthCalendar2
-            // 
-            this.monthCalendar2.Location = new System.Drawing.Point(84, 74);
-            this.monthCalendar2.Name = "monthCalendar2";
-            this.monthCalendar2.TabIndex = 0;
-            // 
-            // listBox4
-            // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.ItemHeight = 16;
-            this.listBox4.Location = new System.Drawing.Point(389, 74);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(200, 436);
-            this.listBox4.TabIndex = 1;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(389, 52);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 16);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Reservas Feitas:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(81, 52);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 16);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Dia da Reserva";
-            // 
-            // listBox5
-            // 
-            this.listBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox5.FormattingEnabled = true;
-            this.listBox5.ItemHeight = 16;
-            this.listBox5.Location = new System.Drawing.Point(3, 18);
-            this.listBox5.Name = "listBox5";
-            this.listBox5.Size = new System.Drawing.Size(180, 208);
-            this.listBox5.TabIndex = 5;
+            this.button5.Location = new System.Drawing.Point(631, 305);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(183, 44);
+            this.button5.TabIndex = 7;
+            this.button5.Text = "Usar Reserva";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -354,50 +358,58 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Detalhes da Reserva";
             // 
-            // button5
+            // listBox5
             // 
-            this.button5.Location = new System.Drawing.Point(631, 305);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(183, 44);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Usar Reserva";
-            this.button5.UseVisualStyleBackColor = true;
+            this.listBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBox5.FormattingEnabled = true;
+            this.listBox5.ItemHeight = 16;
+            this.listBox5.Location = new System.Drawing.Point(3, 18);
+            this.listBox5.Name = "listBox5";
+            this.listBox5.Size = new System.Drawing.Size(180, 208);
+            this.listBox5.TabIndex = 5;
             // 
-            // label9
+            // label8
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(352, 432);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(224, 16);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "A reserva foi efetuada com sucesso!";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(81, 52);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(102, 16);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Dia da Reserva";
             // 
-            // label10
+            // label7
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(352, 463);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(246, 16);
-            this.label10.TabIndex = 26;
-            this.label10.Text = "O PDF da fatura foi criado com sucesso!";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(389, 52);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(109, 16);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Reservas Feitas:";
             // 
-            // label11
+            // listBox4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(628, 387);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(193, 16);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "A sua reserva já foi consumida!";
+            this.listBox4.FormattingEnabled = true;
+            this.listBox4.ItemHeight = 16;
+            this.listBox4.Location = new System.Drawing.Point(389, 74);
+            this.listBox4.Name = "listBox4";
+            this.listBox4.Size = new System.Drawing.Size(200, 436);
+            this.listBox4.TabIndex = 1;
             // 
-            // label12
+            // monthCalendar2
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(628, 362);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 16);
-            this.label12.TabIndex = 9;
-            this.label12.Text = "Concluido!";
+            this.monthCalendar2.Location = new System.Drawing.Point(84, 74);
+            this.monthCalendar2.Name = "monthCalendar2";
+            this.monthCalendar2.TabIndex = 0;
+            // 
+            // btn_retirar
+            // 
+            this.btn_retirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_retirar.Location = new System.Drawing.Point(704, 435);
+            this.btn_retirar.Name = "btn_retirar";
+            this.btn_retirar.Size = new System.Drawing.Size(197, 32);
+            this.btn_retirar.TabIndex = 27;
+            this.btn_retirar.Text = "Retirar";
+            this.btn_retirar.UseVisualStyleBackColor = true;
             // 
             // Form_Reservas
             // 
@@ -456,5 +468,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button btn_retirar;
     }
 }
