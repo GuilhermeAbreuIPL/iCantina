@@ -188,5 +188,9 @@ namespace iCantina.Views
 
         }
 
+        private void Form_RegistarUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
