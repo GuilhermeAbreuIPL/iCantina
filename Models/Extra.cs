@@ -19,18 +19,9 @@ namespace iCantina.Models
 
         public override string ToString()
         {
-            string estado;
-            if (Ativo == true)
-            {
-                estado = "Ativo";
-            }
-            else
-            {
-                estado = "Inativo";
-            }
-
-            return $"{Descricao} - {Preco} - {estado}";
+            return $"{Descricao} - {Preco}";
         }
+
     }
 
 }

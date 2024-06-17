@@ -215,6 +215,7 @@
             this.lb_extra.Size = new System.Drawing.Size(221, 388);
             this.lb_extra.TabIndex = 21;
             this.lb_extra.SelectedIndexChanged += new System.EventHandler(this.lb_extra_SelectedIndexChanged);
+            this.lb_extra.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lb_extra_Format);
             // 
             // Form_Extras
             // 

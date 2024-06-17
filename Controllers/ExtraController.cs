@@ -64,5 +64,10 @@ namespace iCantina.Controllers
         {
             return db.Extras.Find(id);
         }
+
+        public static List<Extra> GetExtrasByState(bool state)
+        {
+            return db.Extras.Where(e => e.Ativo == state).ToList();
+        }
     }
 }

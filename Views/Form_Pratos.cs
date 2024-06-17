@@ -30,9 +30,9 @@ namespace iCantina.Views
             }
 
 
-            Models.Meal meal = new Models.Meal();
+            Meal meal = new Meal();
             meal.Descricao = txt_criarDescricao.Text;
-            meal.Tipo = (Models.Tipo)cb_criarTipo.SelectedIndex;
+            meal.Tipo = (Tipo)cb_criarTipo.SelectedIndex;
             meal.Ativo = cb_criarAtivo.Checked;
 
             if (Controllers.MealController.AddMeal(meal))
@@ -55,7 +55,7 @@ namespace iCantina.Views
         private void lb_pratos_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Get selected item
-            Models.Meal selected = (Models.Meal)lb_pratos.SelectedItem;
+            Meal selected = (Meal)lb_pratos.SelectedItem;
 
             //Set textboxes
            if(selected != null)
@@ -87,7 +87,7 @@ namespace iCantina.Views
             Meal selected = (Meal)lb_pratos.SelectedItem;
 
             //Update selected item
-            if (MealController.UpdateMeal(selected.Id, txt_editDescricao.Text, (Models.Tipo)cb_editTipo.SelectedIndex, cb_editAtivo.Checked))
+            if (MealController.UpdateMeal(selected.Id, txt_editDescricao.Text, (Tipo)cb_editTipo.SelectedIndex, cb_editAtivo.Checked))
             {
                 MessageBox.Show("Prato atualizado com sucesso!");
                 lb_pratos.DataSource = null;
@@ -133,5 +133,12 @@ namespace iCantina.Views
 
         }
 
+        private void lb_pratos_Format(object sender, ListControlConvertEventArgs e)
+        {
+            if (e.ListItem is Meal meal)
+            {
+                e.Value = meal.ToString() + (meal.Ativo ? " - Ativo" : " - Inativo");
+            }
+        }
     }
 }

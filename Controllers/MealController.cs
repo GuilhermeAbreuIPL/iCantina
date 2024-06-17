@@ -73,11 +73,14 @@ namespace iCantina.Controllers
             
         }
 
-      
+        public static List<Meal> GetMealByState(bool state)
+        {
+            return db.Meals.Where(m => m.Ativo == state).ToList();
+        }
 
-        
 
 
-        
+
+
     }
 }

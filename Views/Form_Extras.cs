@@ -134,5 +134,14 @@ namespace iCantina.Views
                 cb_editAtivo.Checked = selected.Ativo;
             }
         }
+
+        private void lb_extra_Format(object sender, ListControlConvertEventArgs e)
+        {
+
+                if (e.ListItem is Extra extra)
+                {
+                    e.Value = extra.ToString() + (extra.Ativo ? " - Ativo" : " - Inativo");
+                } 
+        }
     }
 }
