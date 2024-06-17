@@ -15,6 +15,8 @@ namespace iCantina.Models
         public decimal Preco {  get; set; }
         public bool Ativo { get; set; }
 
+        public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
+
         public override string ToString()
         {
             string estado;

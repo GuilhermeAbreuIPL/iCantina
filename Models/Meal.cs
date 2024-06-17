@@ -21,6 +21,8 @@ namespace iCantina.Models
         public Tipo Tipo { get; set; }
         public bool Ativo { get; set; }
 
+        public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>(); //Talvez seja irrelevante.
+
 
         public override string ToString()
         {
