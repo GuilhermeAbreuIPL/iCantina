@@ -32,6 +32,7 @@
             this.btn_user = new System.Windows.Forms.Button();
             this.btn_cliente = new System.Windows.Forms.Button();
             this.btn_reservas = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,6 +41,7 @@
             this.flowLayoutPanel1.Controls.Add(this.btn_user);
             this.flowLayoutPanel1.Controls.Add(this.btn_cliente);
             this.flowLayoutPanel1.Controls.Add(this.btn_reservas);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -84,6 +86,18 @@
             this.btn_reservas.UseVisualStyleBackColor = true;
             this.btn_reservas.Click += new System.EventHandler(this.btn_reservas_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(3, 143);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(245, 43);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Pratos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -109,6 +123,7 @@
         private System.Windows.Forms.Button btn_user;
         private System.Windows.Forms.Button btn_cliente;
         private System.Windows.Forms.Button btn_reservas;
+        private System.Windows.Forms.Button button1;
     }
 }
 

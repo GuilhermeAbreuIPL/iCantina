@@ -38,6 +38,11 @@ namespace iCantina
             openNewForm(new Form_Reservas());
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            openNewForm(new Form_Pratos());
+        }
+
         private void openNewForm(Form form)
         {
             if (this.ActiveMdiChild != null)
@@ -52,6 +57,6 @@ namespace iCantina
             
         }
 
-
+        
     } 
 }

@@ -60,6 +60,9 @@
             this.lb_cliente = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tp_funcionarios = new System.Windows.Forms.TabPage();
+            this.btn_editarFuncionario = new System.Windows.Forms.Button();
+            this.btn_deleteFuncionario = new System.Windows.Forms.Button();
+            this.lb_funcionarios = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txt_username = new System.Windows.Forms.TextBox();
             this.txt_nifFuncionario = new System.Windows.Forms.TextBox();
@@ -68,9 +71,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lb_funcionarios = new System.Windows.Forms.ListBox();
-            this.btn_deleteFuncionario = new System.Windows.Forms.Button();
-            this.btn_editarFuncionario = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tp_cliente.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -444,6 +444,39 @@
             this.tp_funcionarios.Text = "Funcionarios";
             this.tp_funcionarios.UseVisualStyleBackColor = true;
             // 
+            // btn_editarFuncionario
+            // 
+            this.btn_editarFuncionario.Location = new System.Drawing.Point(420, 262);
+            this.btn_editarFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_editarFuncionario.Name = "btn_editarFuncionario";
+            this.btn_editarFuncionario.Size = new System.Drawing.Size(257, 34);
+            this.btn_editarFuncionario.TabIndex = 37;
+            this.btn_editarFuncionario.Text = "Editar";
+            this.btn_editarFuncionario.UseVisualStyleBackColor = true;
+            this.btn_editarFuncionario.Click += new System.EventHandler(this.btn_editarFuncionario_Click);
+            // 
+            // btn_deleteFuncionario
+            // 
+            this.btn_deleteFuncionario.Location = new System.Drawing.Point(420, 312);
+            this.btn_deleteFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_deleteFuncionario.Name = "btn_deleteFuncionario";
+            this.btn_deleteFuncionario.Size = new System.Drawing.Size(257, 34);
+            this.btn_deleteFuncionario.TabIndex = 36;
+            this.btn_deleteFuncionario.Text = "Delete";
+            this.btn_deleteFuncionario.UseVisualStyleBackColor = true;
+            this.btn_deleteFuncionario.Click += new System.EventHandler(this.btn_deleteFuncionario_Click);
+            // 
+            // lb_funcionarios
+            // 
+            this.lb_funcionarios.FormattingEnabled = true;
+            this.lb_funcionarios.ItemHeight = 16;
+            this.lb_funcionarios.Location = new System.Drawing.Point(162, 75);
+            this.lb_funcionarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lb_funcionarios.Name = "lb_funcionarios";
+            this.lb_funcionarios.Size = new System.Drawing.Size(221, 388);
+            this.lb_funcionarios.TabIndex = 35;
+            this.lb_funcionarios.SelectedIndexChanged += new System.EventHandler(this.lb_funcionarios_SelectedIndexChanged);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_username);
@@ -521,39 +554,6 @@
             this.label10.Size = new System.Drawing.Size(175, 32);
             this.label10.TabIndex = 24;
             this.label10.Text = "Funcionário";
-            // 
-            // lb_funcionarios
-            // 
-            this.lb_funcionarios.FormattingEnabled = true;
-            this.lb_funcionarios.ItemHeight = 16;
-            this.lb_funcionarios.Location = new System.Drawing.Point(162, 75);
-            this.lb_funcionarios.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.lb_funcionarios.Name = "lb_funcionarios";
-            this.lb_funcionarios.Size = new System.Drawing.Size(221, 388);
-            this.lb_funcionarios.TabIndex = 35;
-            this.lb_funcionarios.SelectedIndexChanged += new System.EventHandler(this.lb_funcionarios_SelectedIndexChanged);
-            // 
-            // btn_deleteFuncionario
-            // 
-            this.btn_deleteFuncionario.Location = new System.Drawing.Point(420, 312);
-            this.btn_deleteFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_deleteFuncionario.Name = "btn_deleteFuncionario";
-            this.btn_deleteFuncionario.Size = new System.Drawing.Size(257, 34);
-            this.btn_deleteFuncionario.TabIndex = 36;
-            this.btn_deleteFuncionario.Text = "Delete";
-            this.btn_deleteFuncionario.UseVisualStyleBackColor = true;
-            this.btn_deleteFuncionario.Click += new System.EventHandler(this.btn_deleteFuncionario_Click);
-            // 
-            // btn_editarFuncionario
-            // 
-            this.btn_editarFuncionario.Location = new System.Drawing.Point(420, 262);
-            this.btn_editarFuncionario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_editarFuncionario.Name = "btn_editarFuncionario";
-            this.btn_editarFuncionario.Size = new System.Drawing.Size(257, 34);
-            this.btn_editarFuncionario.TabIndex = 37;
-            this.btn_editarFuncionario.Text = "Editar";
-            this.btn_editarFuncionario.UseVisualStyleBackColor = true;
-            this.btn_editarFuncionario.Click += new System.EventHandler(this.btn_editarFuncionario_Click);
             // 
             // Form_Cliente
             // 

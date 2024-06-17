@@ -87,6 +87,12 @@
     <Compile Include="Views\Form_Clientes.Designer.cs">
       <DependentUpon>Form_Clientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Form_Pratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_Pratos.Designer.cs">
+      <DependentUpon>Form_Pratos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form_Reservas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </Compile>
     <EmbeddedResource Include="Views\Form_Clientes.resx">
       <DependentUpon>Form_Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Pratos.resx">
+      <DependentUpon>Form_Pratos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_Reservas.resx">
       <DependentUpon>Form_Reservas.cs</DependentUpon>
