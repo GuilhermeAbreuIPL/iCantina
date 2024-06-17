@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_editPreco = new System.Windows.Forms.TextBox();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.cb_editAtivo = new System.Windows.Forms.CheckBox();
@@ -37,14 +38,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_criarPreco = new System.Windows.Forms.TextBox();
             this.btn_criar = new System.Windows.Forms.Button();
             this.cb_criarAtivo = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txt_criarDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_extra = new System.Windows.Forms.ListBox();
-            this.txt_criarPreco = new System.Windows.Forms.TextBox();
-            this.txt_editPreco = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -58,12 +58,19 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txt_editDescricao);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Location = new System.Drawing.Point(458, 309);
+            this.groupBox2.Location = new System.Drawing.Point(463, 283);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(284, 192);
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Editar";
+            // 
+            // txt_editPreco
+            // 
+            this.txt_editPreco.Location = new System.Drawing.Point(84, 84);
+            this.txt_editPreco.Name = "txt_editPreco";
+            this.txt_editPreco.Size = new System.Drawing.Size(174, 22);
+            this.txt_editPreco.TabIndex = 8;
             // 
             // btn_delete
             // 
@@ -123,7 +130,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(385, 61);
+            this.label1.Location = new System.Drawing.Point(390, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 32);
             this.label1.TabIndex = 23;
@@ -137,12 +144,19 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txt_criarDescricao);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(458, 113);
+            this.groupBox1.Location = new System.Drawing.Point(463, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(284, 176);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar";
+            // 
+            // txt_criarPreco
+            // 
+            this.txt_criarPreco.Location = new System.Drawing.Point(84, 87);
+            this.txt_criarPreco.Name = "txt_criarPreco";
+            this.txt_criarPreco.Size = new System.Drawing.Size(174, 22);
+            this.txt_criarPreco.TabIndex = 7;
             // 
             // btn_criar
             // 
@@ -193,24 +207,10 @@
             // 
             this.lb_extra.FormattingEnabled = true;
             this.lb_extra.ItemHeight = 16;
-            this.lb_extra.Location = new System.Drawing.Point(196, 113);
+            this.lb_extra.Location = new System.Drawing.Point(201, 87);
             this.lb_extra.Name = "lb_extra";
             this.lb_extra.Size = new System.Drawing.Size(221, 388);
             this.lb_extra.TabIndex = 21;
-            // 
-            // txt_criarPreco
-            // 
-            this.txt_criarPreco.Location = new System.Drawing.Point(84, 87);
-            this.txt_criarPreco.Name = "txt_criarPreco";
-            this.txt_criarPreco.Size = new System.Drawing.Size(174, 22);
-            this.txt_criarPreco.TabIndex = 7;
-            // 
-            // txt_editPreco
-            // 
-            this.txt_editPreco.Location = new System.Drawing.Point(84, 84);
-            this.txt_editPreco.Name = "txt_editPreco";
-            this.txt_editPreco.Size = new System.Drawing.Size(174, 22);
-            this.txt_editPreco.TabIndex = 8;
             // 
             // Form_Extras
             // 
