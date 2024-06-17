@@ -9,8 +9,14 @@ namespace iCantina.Models
     internal class Employee : User
     {
         //Funcionário
+
+
         public string Username { get; set; }
         
+        override public string ToString()
+        {
+            return $"{Nome} - {Nif}";
+        }
 
     }
 }

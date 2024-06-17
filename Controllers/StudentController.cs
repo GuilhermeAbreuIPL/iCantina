@@ -11,7 +11,7 @@ namespace iCantina.Controllers
     internal class StudentController : CustomerController
     {
        
-
+        //Publics
         public static void AddStudent(Student student)
         {
             if (IsValid(student))
@@ -24,6 +24,72 @@ namespace iCantina.Controllers
             
         }
 
+        public static Student GetStudentByNif(int nif) 
+        {
+            Student querry = db.Students.FirstOrDefault(s => s.Nif == nif);
+            if (querry != null)
+            {
+                return querry;
+            }
+            return null;
+        }
+
+        public static bool UpdateStudent(int id,string nome, int nif, int numEstudante)
+        {
+           
+            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            if (querry != null)
+            {
+                try 
+                {
+                    querry.Nome = nome;
+                    querry.Nif = nif;
+                    querry.NumEstudante = numEstudante;
+                    db.SaveChanges();
+                    MessageBox.Show("Estudante atualizado com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao atualizar estudante");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public static bool DeleteStudent(int id)
+        {
+            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    db.Students.Remove(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Estudante removido com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao remover estudante");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static List<Student> ShowAll()
+        {
+            return db.Students.ToList();
+        }
+
+        //Privates
         private static bool IsStudentNumberTaken(int numero)
         {
             var querry = db.Students.FirstOrDefault(s => s.NumEstudante == numero);
@@ -37,7 +103,7 @@ namespace iCantina.Controllers
         {
             bool valid = true;
 
-            if(IsStudentNumberTaken(student.NumEstudante))
+            if(IsStudentNumberTaken(Convert.ToInt32(student.NumEstudante)))
             {
                 MessageBox.Show("Número de estudante já existe.");
                 valid = false;

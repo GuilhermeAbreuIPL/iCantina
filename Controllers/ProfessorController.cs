@@ -16,28 +16,85 @@ namespace iCantina.Controllers
 
         public static void AddProfessor(Professor professor)
         {
-            if (IsValid(professor))
+            try 
             {
                 SetEmail(professor);
                 db.Professors.Add(professor);
                 db.SaveChanges();
                 MessageBox.Show("Adicionado com sucesso!");
             }
-            
-        }
-
-        private static bool IsValid(Professor professor)
-        {
-            bool valid = true;
-
-            if (IsNifTaken(professor.Nif))
+            catch (Exception) 
             {
-                MessageBox.Show("Nif já existe.");
-                valid = false;
-            }
-
-            return valid;
+                MessageBox.Show("Erro ao adicionar!");
+                db.Dispose();
+                db = new CantinaContext();
+            }     
         }
+
+        public static bool UpdateProfessor(int id, string nome, int nif)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    querry.Nome = nome;
+                    querry.Nif = nif;
+                    SetEmail(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Professor atualizado com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao atualizar professor");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static bool DeleteProfessor(int id)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            if (querry != null)
+            {
+                try
+                {
+                    db.Professors.Remove(querry);
+                    db.SaveChanges();
+                    MessageBox.Show("Professor removido com sucesso!");
+                    return true;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Erro ao remover professor");
+                    db.Dispose();
+                    db = new CantinaContext();
+                    return false;
+                }
+            }
+            return false;
+        }
+
+        public static Professor GetProfessorByNif(int nif)
+        {
+            Professor querry = db.Professors.FirstOrDefault(p => p.Nif == nif);
+            if (querry != null)
+            {
+                return querry;
+            }
+            return null;
+        }
+
+        public static List<Professor> ShowAll()
+        {
+            return db.Professors.ToList();
+        }
+
+       
 
         private static void SetEmail(Professor professor)
         {

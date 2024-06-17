@@ -15,10 +15,37 @@ namespace iCantina.Models
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Professor> Professors { get; set; }
-        
-        
+
+
+        //Meals and Extras
+
+        public DbSet<Extra> Extras { get; set; }
+        public DbSet<Meal> Meals { get; set; }
+
 
         //set the name of the database to iCantina
         public CantinaContext() : base("iCantina_new") { }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Student>()
+                .Property(s => s.NumEstudante)
+                .IsOptional();
+
+
+            // Configure Username field to be unique if not null
+            modelBuilder.Entity<Employee>()
+                .Property(e => e.Username)
+                .IsOptional()
+                .HasMaxLength(450);
+
+            // Create unique index for Username
+            modelBuilder.Entity<Employee>()
+                .HasIndex(e => e.Username)
+                .IsUnique()
+                .HasName("IX_Username");
+        }
     }
 }
