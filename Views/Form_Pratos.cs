@@ -1,4 +1,5 @@
 ﻿using iCantina.Controllers;
+using iCantina.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace iCantina.Views
         public Form_Pratos()
         {
             InitializeComponent();
-            lb_pratos.DataSource = Controllers.MealController.ShowAll();
+            lb_pratos.DataSource = MealController.ShowAll();
             cb_criarTipo.SelectedIndex = 0;
         }
 
@@ -38,7 +39,7 @@ namespace iCantina.Views
             {
                 MessageBox.Show("Prato adicionado com sucesso!");
                 lb_pratos.DataSource = null;
-                lb_pratos.DataSource = Controllers.MealController.ShowAll();
+                lb_pratos.DataSource = MealController.ShowAll();
                 return;
             }else
             {
@@ -54,10 +55,75 @@ namespace iCantina.Views
             Models.Meal selected = (Models.Meal)lb_pratos.SelectedItem;
 
             //Set textboxes
-            txt_editDescricao.Text = selected.Descricao;
-            cb_editTipo.SelectedIndex = (int)selected.Tipo;
-            cb_editAtivo.Checked = selected.Ativo;
+           if(selected != null)
+            {
+                txt_editDescricao.Text = selected.Descricao;
+                cb_editTipo.SelectedIndex = (int)selected.Tipo;
+                cb_editAtivo.Checked = selected.Ativo;
+
+            }
+
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            if(lb_pratos.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um prato para editar.");
+                return;
+            }
+
+            if(String.IsNullOrEmpty(txt_editDescricao.Text))
+            {
+                MessageBox.Show("A descrição não pode estar vazia.");
+                return;
+            }
+
+
+            //Get selected item
+            Meal selected = (Meal)lb_pratos.SelectedItem;
+
+            //Update selected item
+            if (MealController.UpdateMeal(selected.Id, txt_editDescricao.Text, (Models.Tipo)cb_editTipo.SelectedIndex, cb_editAtivo.Checked))
+            {
+                MessageBox.Show("Prato atualizado com sucesso!");
+                lb_pratos.DataSource = null;
+                lb_pratos.DataSource = MealController.ShowAll();
+                return;
+
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar prato");
+                return;
+            }
             
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+
+            if(lb_pratos.SelectedItem != null)
+            {
+                Meal meal = (Meal)lb_pratos.SelectedItem;
+                if (MealController.DeleteMeal(meal.Id))
+                {
+                    MessageBox.Show("Prato removido com sucesso!");
+                    lb_pratos.DataSource = null;
+                    lb_pratos.DataSource = MealController.ShowAll();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao remover prato");
+                    return;
+                }
+            }
+            else {                
+                MessageBox.Show("Selecione um prato para remover");
+                return;
+            }
+
         }
     }
 }

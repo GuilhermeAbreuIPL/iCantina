@@ -23,7 +23,7 @@ namespace iCantina.Controllers
             return false;
         }
 
-        public static bool UpdateMeal(int id, string descricao, Tipo tipo)
+        public static bool UpdateMeal(int id, string descricao, Tipo tipo, bool state)
         {
             try
             {
@@ -31,6 +31,7 @@ namespace iCantina.Controllers
                 meal.Descricao = descricao;
                 meal.Tipo = tipo;
                 meal.Descricao = descricao;
+                meal.Ativo = state;
                 db.SaveChanges();
                 return true;
                 
@@ -41,6 +42,18 @@ namespace iCantina.Controllers
                 MessageBox.Show("Erro ao atualizar prato");
                 return false;
             }
+        }
+
+        public static bool DeleteMeal(int id)
+        {
+            Meal meal = GetMealById(id);
+            if (meal != null)
+            {
+                db.Meals.Remove(meal);
+                db.SaveChanges();
+                return true;
+            }
+            return false;
         }
 
         public static List<Meal> ShowAll()
