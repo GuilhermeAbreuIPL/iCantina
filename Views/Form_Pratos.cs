@@ -16,8 +16,33 @@ namespace iCantina.Views
         {
             InitializeComponent();
 
-            cb_criarTipo.SelectedIndex = 1;
+            cb_criarTipo.SelectedIndex = 0;
         }
 
+        private void btn_criar_Click(object sender, EventArgs e)
+        {
+            if (String.IsNullOrEmpty(txt_criarDescricao.Text))
+            {
+                MessageBox.Show("Insira uma descrição");
+                return;
+            }
+
+
+            Models.Meal meal = new Models.Meal();
+            meal.Descricao = txt_criarDescricao.Text;
+            meal.Tipo = (Models.Tipo)cb_criarTipo.SelectedIndex;
+            meal.Ativo = cb_criarAtivo.Checked;
+
+            if (Controllers.MealController.AddMeal(meal))
+            {
+                MessageBox.Show("Prato adicionado com sucesso!");
+                return;
+            }else
+            {
+                MessageBox.Show("Erro ao adicionar prato");
+                return;
+            }
+            
+        }
     }
 }
