@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iCantina.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,7 @@ namespace iCantina.Views
         public Form_Pratos()
         {
             InitializeComponent();
-
+            lb_pratos.DataSource = Controllers.MealController.ShowAll();
             cb_criarTipo.SelectedIndex = 0;
         }
 
@@ -36,12 +37,26 @@ namespace iCantina.Views
             if (Controllers.MealController.AddMeal(meal))
             {
                 MessageBox.Show("Prato adicionado com sucesso!");
+                lb_pratos.DataSource = null;
+                lb_pratos.DataSource = Controllers.MealController.ShowAll();
                 return;
             }else
             {
                 MessageBox.Show("Erro ao adicionar prato");
                 return;
             }
+            
+        }
+
+        private void lb_pratos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Get selected item
+            Models.Meal selected = (Models.Meal)lb_pratos.SelectedItem;
+
+            //Set textboxes
+            txt_editDescricao.Text = selected.Descricao;
+            cb_editTipo.SelectedIndex = (int)selected.Tipo;
+            cb_editAtivo.Checked = selected.Ativo;
             
         }
     }

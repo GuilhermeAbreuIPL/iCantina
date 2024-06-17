@@ -53,10 +53,11 @@
             // 
             this.lb_pratos.FormattingEnabled = true;
             this.lb_pratos.Location = new System.Drawing.Point(168, 60);
-            this.lb_pratos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lb_pratos.Margin = new System.Windows.Forms.Padding(2);
             this.lb_pratos.Name = "lb_pratos";
             this.lb_pratos.Size = new System.Drawing.Size(167, 316);
             this.lb_pratos.TabIndex = 0;
+            this.lb_pratos.SelectedIndexChanged += new System.EventHandler(this.lb_pratos_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -67,9 +68,9 @@
             this.groupBox1.Controls.Add(this.txt_criarDescricao);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(364, 60);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(213, 143);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
@@ -78,7 +79,7 @@
             // btn_criar
             // 
             this.btn_criar.Location = new System.Drawing.Point(137, 112);
-            this.btn_criar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_criar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_criar.Name = "btn_criar";
             this.btn_criar.Size = new System.Drawing.Size(56, 19);
             this.btn_criar.TabIndex = 6;
@@ -90,7 +91,7 @@
             // 
             this.cb_criarAtivo.AutoSize = true;
             this.cb_criarAtivo.Location = new System.Drawing.Point(7, 112);
-            this.cb_criarAtivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_criarAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_criarAtivo.Name = "cb_criarAtivo";
             this.cb_criarAtivo.Size = new System.Drawing.Size(50, 17);
             this.cb_criarAtivo.TabIndex = 5;
@@ -106,7 +107,7 @@
             "Peixe",
             "Vegetariano"});
             this.cb_criarTipo.Location = new System.Drawing.Point(63, 68);
-            this.cb_criarTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_criarTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_criarTipo.Name = "cb_criarTipo";
             this.cb_criarTipo.Size = new System.Drawing.Size(132, 21);
             this.cb_criarTipo.TabIndex = 4;
@@ -124,7 +125,7 @@
             // txt_criarDescricao
             // 
             this.txt_criarDescricao.Location = new System.Drawing.Point(63, 17);
-            this.txt_criarDescricao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_criarDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txt_criarDescricao.Multiline = true;
             this.txt_criarDescricao.Name = "txt_criarDescricao";
             this.txt_criarDescricao.Size = new System.Drawing.Size(132, 40);
@@ -161,9 +162,9 @@
             this.groupBox2.Controls.Add(this.txt_editDescricao);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Location = new System.Drawing.Point(364, 219);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(213, 156);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
@@ -172,7 +173,7 @@
             // btn_delete
             // 
             this.btn_delete.Location = new System.Drawing.Point(146, 119);
-            this.btn_delete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(56, 19);
             this.btn_delete.TabIndex = 7;
@@ -182,7 +183,7 @@
             // btn_editar
             // 
             this.btn_editar.Location = new System.Drawing.Point(85, 119);
-            this.btn_editar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_editar.Margin = new System.Windows.Forms.Padding(2);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.Size = new System.Drawing.Size(56, 19);
             this.btn_editar.TabIndex = 6;
@@ -193,7 +194,7 @@
             // 
             this.cb_editAtivo.AutoSize = true;
             this.cb_editAtivo.Location = new System.Drawing.Point(7, 112);
-            this.cb_editAtivo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_editAtivo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_editAtivo.Name = "cb_editAtivo";
             this.cb_editAtivo.Size = new System.Drawing.Size(50, 17);
             this.cb_editAtivo.TabIndex = 5;
@@ -209,7 +210,7 @@
             "Peixe",
             "Vegetariano"});
             this.cb_editTipo.Location = new System.Drawing.Point(63, 68);
-            this.cb_editTipo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cb_editTipo.Margin = new System.Windows.Forms.Padding(2);
             this.cb_editTipo.Name = "cb_editTipo";
             this.cb_editTipo.Size = new System.Drawing.Size(132, 21);
             this.cb_editTipo.TabIndex = 4;
@@ -227,7 +228,7 @@
             // txt_editDescricao
             // 
             this.txt_editDescricao.Location = new System.Drawing.Point(63, 17);
-            this.txt_editDescricao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_editDescricao.Margin = new System.Windows.Forms.Padding(2);
             this.txt_editDescricao.Multiline = true;
             this.txt_editDescricao.Name = "txt_editDescricao";
             this.txt_editDescricao.Size = new System.Drawing.Size(132, 40);
@@ -253,7 +254,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lb_pratos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Pratos";
             this.Text = "Form_Pratos";
             this.groupBox1.ResumeLayout(false);
