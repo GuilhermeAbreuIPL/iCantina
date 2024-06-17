@@ -17,6 +17,11 @@ namespace iCantina.Models
         public DbSet<Professor> Professors { get; set; }
 
 
+        //Meals and Extras
+
+        public DbSet<Extra> Extras { get; set; }
+        public DbSet<Meal> Meals { get; set; }
+
 
         //set the name of the database to iCantina
         public CantinaContext() : base("iCantina_new") { }
