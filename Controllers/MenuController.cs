@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.AxHost;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace iCantina.Controllers
 {
@@ -22,6 +23,43 @@ namespace iCantina.Controllers
                 return true;
             }
             return false;
+        }
+
+        public static List<Models.Menu> GetAvailableMenus(DateTime date)
+        {
+            //Função utilizada para mostar os menus aquando de uma reserva.
+
+            List <Models.Menu> querry = Program.db.Menus.Where(m => m.DataHora.Year == date.Year && m.DataHora.Month == date.Month && m.DataHora.Day == date.Day).ToList();
+            List <Models.Menu> menusDisponiveis = new List<Models.Menu>();
+            if(querry != null)
+            {
+                foreach (Models.Menu menuTemp in querry)
+                {
+                    if (menuTemp.DataHora.Date == DateTime.Now.Date)
+                    {
+                        if (date.Hour < 12 && menuTemp.DataHora.Hour == 12)
+                        {
+                            //Adiciona só para o almoço
+                            menusDisponiveis.Add(menuTemp);
+                        }
+
+                        if (date.Hour < 19 && menuTemp.DataHora.Hour == 19)
+                        {
+                            menusDisponiveis.Add(menuTemp);
+                        }
+                    }else
+                    {
+                        return querry;
+                    }
+                    
+                    
+                    
+                }
+
+                return menusDisponiveis;
+            }
+            return null;
+            
         }
 
         public static List<Models.Menu> GetMenus()
