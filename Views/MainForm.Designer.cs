@@ -86,7 +86,7 @@
             this.btn_reservas.Name = "btn_reservas";
             this.btn_reservas.Size = new System.Drawing.Size(245, 43);
             this.btn_reservas.TabIndex = 3;
-            this.btn_reservas.Text = "Visualizar Reservas";
+            this.btn_reservas.Text = "Reservas";
             this.btn_reservas.UseVisualStyleBackColor = true;
             this.btn_reservas.Click += new System.EventHandler(this.btn_reservas_Click);
             // 
