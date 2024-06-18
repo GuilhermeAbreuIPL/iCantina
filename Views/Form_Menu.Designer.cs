@@ -30,9 +30,17 @@
         {
             this.dtp_data = new System.Windows.Forms.DateTimePicker();
             this.cb_horario = new System.Windows.Forms.ComboBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lb_menuExistente = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txt_precoAluno = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txt_precoProf = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btn_clear = new System.Windows.Forms.Button();
+            this.btn_editar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txt_quantidade = new System.Windows.Forms.TextBox();
             this.btn_criar = new System.Windows.Forms.Button();
             this.btn_addExtras = new System.Windows.Forms.Button();
             this.btn_addPrato = new System.Windows.Forms.Button();
@@ -44,14 +52,7 @@
             this.lb_pratos = new System.Windows.Forms.ListBox();
             this.lb_menu = new System.Windows.Forms.ListBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.txt_quantidade = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btn_clear = new System.Windows.Forms.Button();
-            this.btn_editar = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt_precoProf = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt_precoAluno = new System.Windows.Forms.TextBox();
+            this.btn_selecionar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,14 +73,15 @@
             this.cb_horario.Size = new System.Drawing.Size(121, 24);
             this.cb_horario.TabIndex = 10;
             // 
-            // listBox1
+            // lb_menuExistente
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(12, 41);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(152, 372);
-            this.listBox1.TabIndex = 11;
+            this.lb_menuExistente.FormattingEnabled = true;
+            this.lb_menuExistente.ItemHeight = 16;
+            this.lb_menuExistente.Location = new System.Drawing.Point(12, 41);
+            this.lb_menuExistente.Name = "lb_menuExistente";
+            this.lb_menuExistente.Size = new System.Drawing.Size(152, 372);
+            this.lb_menuExistente.TabIndex = 11;
+            this.lb_menuExistente.SelectedIndexChanged += new System.EventHandler(this.lb_menuExistente_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -118,6 +120,74 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar / Editar Menu";
+            // 
+            // txt_precoAluno
+            // 
+            this.txt_precoAluno.Location = new System.Drawing.Point(600, 258);
+            this.txt_precoAluno.Name = "txt_precoAluno";
+            this.txt_precoAluno.Size = new System.Drawing.Size(120, 22);
+            this.txt_precoAluno.TabIndex = 26;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(597, 239);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(83, 16);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Preço Aluno:";
+            // 
+            // txt_precoProf
+            // 
+            this.txt_precoProf.Location = new System.Drawing.Point(600, 193);
+            this.txt_precoProf.Name = "txt_precoProf";
+            this.txt_precoProf.Size = new System.Drawing.Size(120, 22);
+            this.txt_precoProf.TabIndex = 24;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(597, 171);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 16);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Preço Professor:";
+            // 
+            // btn_clear
+            // 
+            this.btn_clear.Location = new System.Drawing.Point(600, 452);
+            this.btn_clear.Name = "btn_clear";
+            this.btn_clear.Size = new System.Drawing.Size(124, 37);
+            this.btn_clear.TabIndex = 15;
+            this.btn_clear.Text = "Clear ALL";
+            this.btn_clear.UseVisualStyleBackColor = true;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
+            // 
+            // btn_editar
+            // 
+            this.btn_editar.Location = new System.Drawing.Point(20, 495);
+            this.btn_editar.Name = "btn_editar";
+            this.btn_editar.Size = new System.Drawing.Size(169, 36);
+            this.btn_editar.TabIndex = 22;
+            this.btn_editar.Text = "Editar";
+            this.btn_editar.UseVisualStyleBackColor = true;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(597, 302);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 16);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "Quantidade Menus:";
+            // 
+            // txt_quantidade
+            // 
+            this.txt_quantidade.Location = new System.Drawing.Point(600, 332);
+            this.txt_quantidade.Name = "txt_quantidade";
+            this.txt_quantidade.Size = new System.Drawing.Size(120, 22);
+            this.txt_quantidade.TabIndex = 20;
             // 
             // btn_criar
             // 
@@ -212,93 +282,36 @@
             this.lb_menu.Name = "lb_menu";
             this.lb_menu.Size = new System.Drawing.Size(169, 340);
             this.lb_menu.TabIndex = 10;
-            this.lb_menu.SelectedIndexChanged += new System.EventHandler(this.lb_menu_SelectedIndexChanged);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 419);
+            this.button2.Location = new System.Drawing.Point(12, 456);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(152, 31);
             this.button2.TabIndex = 14;
             this.button2.Text = "Delete";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // txt_quantidade
+            // btn_selecionar
             // 
-            this.txt_quantidade.Location = new System.Drawing.Point(600, 332);
-            this.txt_quantidade.Name = "txt_quantidade";
-            this.txt_quantidade.Size = new System.Drawing.Size(120, 22);
-            this.txt_quantidade.TabIndex = 20;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(597, 302);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 16);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "Quantidade Menus:";
-            // 
-            // btn_clear
-            // 
-            this.btn_clear.Location = new System.Drawing.Point(600, 452);
-            this.btn_clear.Name = "btn_clear";
-            this.btn_clear.Size = new System.Drawing.Size(124, 37);
-            this.btn_clear.TabIndex = 15;
-            this.btn_clear.Text = "Clear ALL";
-            this.btn_clear.UseVisualStyleBackColor = true;
-            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
-            // 
-            // btn_editar
-            // 
-            this.btn_editar.Location = new System.Drawing.Point(20, 495);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.Size = new System.Drawing.Size(169, 36);
-            this.btn_editar.TabIndex = 22;
-            this.btn_editar.Text = "Editar";
-            this.btn_editar.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(597, 171);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 16);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Preço Professor:";
-            // 
-            // txt_precoProf
-            // 
-            this.txt_precoProf.Location = new System.Drawing.Point(600, 193);
-            this.txt_precoProf.Name = "txt_precoProf";
-            this.txt_precoProf.Size = new System.Drawing.Size(120, 22);
-            this.txt_precoProf.TabIndex = 24;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(597, 239);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 16);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Preço Aluno:";
-            // 
-            // txt_precoAluno
-            // 
-            this.txt_precoAluno.Location = new System.Drawing.Point(600, 258);
-            this.txt_precoAluno.Name = "txt_precoAluno";
-            this.txt_precoAluno.Size = new System.Drawing.Size(120, 22);
-            this.txt_precoAluno.TabIndex = 26;
+            this.btn_selecionar.Location = new System.Drawing.Point(12, 419);
+            this.btn_selecionar.Name = "btn_selecionar";
+            this.btn_selecionar.Size = new System.Drawing.Size(152, 31);
+            this.btn_selecionar.TabIndex = 15;
+            this.btn_selecionar.Text = "Select";
+            this.btn_selecionar.UseVisualStyleBackColor = true;
+            this.btn_selecionar.Click += new System.EventHandler(this.btn_selecionar_Click);
             // 
             // Form_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 562);
+            this.Controls.Add(this.btn_selecionar);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lb_menuExistente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_Menu";
             this.Text = "Form_Menu";
@@ -312,7 +325,7 @@
         #endregion
         private System.Windows.Forms.DateTimePicker dtp_data;
         private System.Windows.Forms.ComboBox cb_horario;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lb_menuExistente;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btn_addExtras;
@@ -334,5 +347,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt_precoProf;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btn_selecionar;
     }
 }

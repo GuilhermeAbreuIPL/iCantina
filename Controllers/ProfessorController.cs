@@ -94,7 +94,6 @@ namespace iCantina.Controllers
             return db.Professors.ToList();
         }
 
-       
 
         private static void SetEmail(Professor professor)
         {

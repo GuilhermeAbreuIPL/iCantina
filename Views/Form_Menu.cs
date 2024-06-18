@@ -31,6 +31,8 @@ namespace iCantina.Views
 
             lb_pratos.DataSource = MealController.GetMealByState(true);
             lb_extras.DataSource = ExtraController.GetExtrasByState(true);
+            lb_menuExistente.DataSource = MenuController.GetMenus();
+            
         }
 
         private void lb_pratos_SelectedIndexChanged(object sender, EventArgs e)
@@ -83,7 +85,7 @@ namespace iCantina.Views
         private void btn_criar_Click_1(object sender, EventArgs e)
         {
             // Criar menu.
-            //se a listbox estiver vazia não cria menu, se não cria menu com cb_horario, lb_menu e dtp_data
+            
             string horas = cb_horario.SelectedValue.ToString();
             string data = dtp_data.Value.ToShortDateString();
             DateTime diaHora = DateTime.Parse($"{data} {horas}");
@@ -96,50 +98,25 @@ namespace iCantina.Views
             int quantidade;
             decimal precoAluno;
             decimal precoProf;
-            try
+      
+            if (!int.TryParse(txt_quantidade.Text, out quantidade))
             {
-                quantidade = int.Parse(txt_quantidade.Text);
-                if (quantidade <= 0)
-                {
-                    MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
-                    return;
-                }
-
-
-            }catch(Exception ex)
-            {
-                MessageBox.Show("A quantidade introduzida tem de ser um número!");
+                MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
                 return;
             }
 
-            try
+            if (!decimal.TryParse(txt_precoAluno.Text, out precoAluno))
             {
-                precoAluno = decimal.Parse(txt_precoAluno.Text);   
-                if (precoAluno <= 0)
-                {
-                    MessageBox.Show("Preço introduzido não pode ser 0, ou numero negativo!");
-                    return;
-                }
-            }catch(Exception)
-            {
-                MessageBox.Show("O preço referente ao aluno tem de ser um número!");
+                MessageBox.Show("Preço referente ao aluno tem de ser um número!");
                 return;
             }
 
-            try
+            if (!decimal.TryParse(txt_precoProf.Text, out precoProf))
             {
-                precoProf = decimal.Parse(txt_precoProf.Text);
-                if (precoProf <= 0)
-                {
-                    MessageBox.Show("Preço introduzido não pode ser 0, ou numero negativo!");
-                    return;
-                }
-            }catch(Exception)
-            {
-                MessageBox.Show("O preço referente ao professor tem de ser um número!");
+                MessageBox.Show("Preço referente ao professor tem de ser um número!");
                 return;
             }
-            
+
             if (diaHora < DateTime.Now)
             {
                 MessageBox.Show("Data introduzida não pode ser no passado!");
@@ -180,6 +157,7 @@ namespace iCantina.Views
             if (MenuController.AddMenu(menu)) 
             { 
                 MessageBox.Show("Menu criado com sucesso!");
+                ClearMenu();
                 return;
             }
             else
@@ -187,15 +165,6 @@ namespace iCantina.Views
                 MessageBox.Show("Erro ao criar menu");
                 return;
             }
-            
-                
-             
-
-            
-        }
-
-        private void lb_menu_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -251,6 +220,124 @@ namespace iCantina.Views
 
         private void btn_clear_Click(object sender, EventArgs e)
         {
+            ClearMenu();
+            btn_criar.Enabled = true;
+        }
+
+        private void btn_selecionar_Click(object sender, EventArgs e)
+        {
+            Models.Menu menu = (Models.Menu)lb_menuExistente.SelectedItem;
+            if (menu != null)
+            {
+                //ClearMenu();
+                btn_criar.Enabled = false;
+                dtp_data.Value = menu.DataHora;
+                cb_horario.SelectedValue = menu.DataHora.ToString("HH:mm:ss");
+                txt_quantidade.Text = menu.Quantidade.ToString();
+                txt_precoAluno.Text = menu.PrecoEstudante.ToString();
+                txt_precoProf.Text = menu.PrecoProfessor.ToString();
+
+                foreach (Meal meal in menu.Pratos)
+                {
+                    lb_menu.Items.Add(meal);
+                }
+
+                foreach (Extra extra in menu.Extras)
+                {
+                    lb_menu.Items.Add(extra);
+                }
+
+            }
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            // Editar menu.
+
+            string horas = cb_horario.SelectedValue.ToString();
+            string data = dtp_data.Value.ToShortDateString();
+            DateTime diaHora = DateTime.Parse($"{data} {horas}");
+            if (lb_menu.Items.Count == 0)
+            {
+                MessageBox.Show("Adicione pratos ou extras ao menu");
+                return;
+            }
+
+            int quantidade;
+            decimal precoAluno;
+            decimal precoProf;
+
+            if (!int.TryParse(txt_quantidade.Text, out quantidade))
+            {
+                MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
+                return;
+            }
+
+            if (!decimal.TryParse(txt_precoAluno.Text, out precoAluno))
+            {
+                MessageBox.Show("Preço referente ao aluno tem de ser um número!");
+                return;
+            }
+
+            if (!decimal.TryParse(txt_precoProf.Text, out precoProf))
+            {
+                MessageBox.Show("Preço referente ao professor tem de ser um número!");
+                return;
+            }
+
+            if (diaHora < DateTime.Now)
+            {
+                MessageBox.Show("Data introduzida não pode ser no passado!");
+                return;
+            }
+
+            if (!CheckExtras())
+            {
+                MessageBox.Show("Adicione pelo menos 3 extras ao menu");
+                return;
+            }
+
+            if (!CheckMeals())
+            {
+                MessageBox.Show("Adicione pelo menos 1 prato de cada tipo (Carne, Peixe, Vegetariano)");
+                return;
+            }
+            List<Meal> listMeal = new List<Meal>();
+            List<Extra> listExtra = new List<Extra>();
+            foreach (Meal meal in lb_menu.Items)
+            {
+                
+                listMeal.Add(meal);
+            }
+
+            foreach (Extra extra in lb_menu.Items)
+            {
+                listExtra.Add(extra);
+            }
+
+            if (MenuController.UpdateMenu(((Models.Menu)lb_menuExistente.SelectedItem).Id, quantidade, precoProf, precoAluno, diaHora, listMeal ,listExtra ))
+            {
+                MessageBox.Show("Menu atualizado com sucesso!");
+                ClearMenu();
+                btn_criar.Enabled = true;
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Erro ao atualizar menu");
+                return;
+            }
+
+            
+        }
+
+        private void lb_menuExistente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearMenu()
+        {
             lb_menu.Items.Clear();
             txt_quantidade.Clear();
             cb_horario.SelectedIndex = 0;
@@ -258,5 +345,7 @@ namespace iCantina.Views
             txt_precoAluno.Clear();
             txt_precoProf.Clear();
         }
+
+       
     }
 }
