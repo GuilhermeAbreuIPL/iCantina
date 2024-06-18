@@ -11,14 +11,14 @@ namespace iCantina.Controllers
 {
     internal class MenuController
     {
-        protected static CantinaContext db = Program.DbContext;
+        
 
         public static bool AddMenu(Models.Menu menu)
         {
             if (menu != null)
             {
-                db.Menus.Add(menu);
-                db.SaveChanges();
+                Program.db.Menus.Add(menu);
+                Program.db.SaveChanges();
                 return true;
             }
             return false;
@@ -26,27 +26,27 @@ namespace iCantina.Controllers
 
         public static List<Models.Menu> GetMenus()
         {
-            return db.Menus.ToList();
+            return Program.db.Menus.ToList();
         }
 
         public static bool UpdateMenu(int id, int quantidade, decimal precoProf, decimal precoAluno, DateTime data, List<Meal> meal, List<Extra> extra)
         {
             try
             {
-                Models.Menu menu = db.Menus.FirstOrDefault(m => m.Id == id);
+                Models.Menu menu = Program.db.Menus.FirstOrDefault(m => m.Id == id);
                 menu.Quantidade = quantidade;
                 menu.PrecoProfessor = precoProf;
                 menu.PrecoEstudante = precoAluno;
                 menu.DataHora = data;
                 menu.Pratos = meal;
                 menu.Extras = extra;
-                db.SaveChanges();
+                Program.db.SaveChanges();
                 return true;
             }
             catch (Exception)
             {
-                db.Dispose();
-                db = new CantinaContext();
+                Program.db.Dispose();
+                Program.db = new CantinaContext();
                 return false;
             }
 

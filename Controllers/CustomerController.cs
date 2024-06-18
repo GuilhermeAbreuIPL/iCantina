@@ -1,6 +1,7 @@
 ﻿using iCantina.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,12 +13,14 @@ namespace iCantina.Controllers
     {
         public static List<Customer> ShowAll()
         {
-            return db.Customers.ToList(); 
+            return Program.db.Customers.ToList(); 
+            
+            
         }
 
         public static Customer GetCustomerByNif(int nif) 
         {
-            Customer querry = db.Customers.FirstOrDefault(c => c.Nif == nif);
+            Customer querry = Program.db.Customers.FirstOrDefault(c => c.Nif == nif);
             if (querry != null)
             {
                 return querry;
@@ -33,7 +36,7 @@ namespace iCantina.Controllers
             {
                 Customer customer = GetCustomerByNif(nif);
                 customer.Saldo += saldo;
-                db.SaveChanges();
+                Program.db.SaveChanges();
                 
                 return true;
             }
@@ -44,7 +47,7 @@ namespace iCantina.Controllers
 
         public static decimal GetSaldo(int nif)
         {
-            Customer querry = db.Customers.FirstOrDefault(c => c.Nif == nif);
+            Customer querry = Program.db.Customers.FirstOrDefault(c => c.Nif == nif);
             if (querry != null)
             {
                 return querry.Saldo;

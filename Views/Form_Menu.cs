@@ -229,7 +229,7 @@ namespace iCantina.Views
             Models.Menu menu = (Models.Menu)lb_menuExistente.SelectedItem;
             if (menu != null)
             {
-                //ClearMenu();
+                ClearMenu();
                 btn_criar.Enabled = false;
                 dtp_data.Value = menu.DataHora;
                 cb_horario.SelectedValue = menu.DataHora.ToString("HH:mm:ss");

@@ -10,14 +10,14 @@ namespace iCantina.Controllers
 {
     internal class ExtraController
     {
-        protected static CantinaContext db = Program.DbContext;
+        
 
         public static bool AddExtra(Extra extra)
         {
             if (extra != null)
             {
-                db.Extras.Add(extra);
-                db.SaveChanges();
+                Program.db.Extras.Add(extra);
+                Program.db.SaveChanges();
                 return true;
             }
             return false;
@@ -31,13 +31,13 @@ namespace iCantina.Controllers
                 extra.Descricao = descricao;
                 extra.Preco = preco;
                 extra.Ativo = state;
-                db.SaveChanges();
+                Program.db.SaveChanges();
                 return true;
             }
             catch (Exception)
             {
-                db.Dispose();
-                db = new CantinaContext();
+                Program.db.Dispose();
+                Program.db = new CantinaContext();
                 MessageBox.Show("Erro ao atualizar extra");
                 return false;
             }
@@ -48,8 +48,8 @@ namespace iCantina.Controllers
             Extra extra = GetExtraById(id);
             if (extra != null)
             {
-                db.Extras.Remove(extra);
-                db.SaveChanges();
+                Program.db.Extras.Remove(extra);
+                Program.db.SaveChanges();
                 return true;
             }
             return false;
@@ -57,17 +57,17 @@ namespace iCantina.Controllers
 
         public static List<Extra> ShowAll()
         {
-            return db.Extras.ToList();
+            return Program.db.Extras.ToList();
         }
 
         public static Extra GetExtraById(int id)
         {
-            return db.Extras.Find(id);
+            return Program.db.Extras.Find(id);
         }
 
         public static List<Extra> GetExtrasByState(bool state)
         {
-            return db.Extras.Where(e => e.Ativo == state).ToList();
+            return Program.db.Extras.Where(e => e.Ativo == state).ToList();
         }
     }
 }

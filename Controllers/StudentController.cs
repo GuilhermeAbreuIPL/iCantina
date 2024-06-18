@@ -16,8 +16,8 @@ namespace iCantina.Controllers
         {
             if (IsValid(student))
             {
-                db.Students.Add(student);
-                db.SaveChanges();
+                Program.db.Students.Add(student);
+                Program.db.SaveChanges();
                 MessageBox.Show("Adicionado com sucesso!");
             }
             
@@ -26,7 +26,7 @@ namespace iCantina.Controllers
 
         public static Student GetStudentByNif(int nif) 
         {
-            Student querry = db.Students.FirstOrDefault(s => s.Nif == nif);
+            Student querry = Program.db.Students.FirstOrDefault(s => s.Nif == nif);
             if (querry != null)
             {
                 return querry;
@@ -37,7 +37,7 @@ namespace iCantina.Controllers
         public static bool UpdateStudent(int id,string nome, int nif, int numEstudante)
         {
            
-            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            Student querry = Program.db.Students.FirstOrDefault(s => s.Id == id);
             if (querry != null)
             {
                 try 
@@ -45,15 +45,15 @@ namespace iCantina.Controllers
                     querry.Nome = nome;
                     querry.Nif = nif;
                     querry.NumEstudante = numEstudante;
-                    db.SaveChanges();
+                    Program.db.SaveChanges();
                     MessageBox.Show("Estudante atualizado com sucesso!");
                     return true;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Erro ao atualizar estudante");
-                    db.Dispose();
-                    db = new CantinaContext();
+                    Program.db.Dispose();
+                    Program.db = new CantinaContext();
                     return false;
                 }
             }
@@ -63,21 +63,21 @@ namespace iCantina.Controllers
 
         public static bool DeleteStudent(int id)
         {
-            Student querry = db.Students.FirstOrDefault(s => s.Id == id);
+            Student querry = Program.db.Students.FirstOrDefault(s => s.Id == id);
             if (querry != null)
             {
                 try
                 {
-                    db.Students.Remove(querry);
-                    db.SaveChanges();
+                    Program.db.Students.Remove(querry);
+                    Program.db.SaveChanges();
                     MessageBox.Show("Estudante removido com sucesso!");
                     return true;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Erro ao remover estudante");
-                    db.Dispose();
-                    db = new CantinaContext();
+                    Program.db.Dispose();
+                    Program.db = new CantinaContext();
                     return false;
                 }
             }
@@ -86,13 +86,13 @@ namespace iCantina.Controllers
 
         public static List<Student> ShowAll()
         {
-            return db.Students.ToList();
+            return Program.db.Students.ToList();
         }
 
         //Privates
         private static bool IsStudentNumberTaken(int numero)
         {
-            var querry = db.Students.FirstOrDefault(s => s.NumEstudante == numero);
+            var querry = Program.db.Students.FirstOrDefault(s => s.NumEstudante == numero);
             if (querry!= null){
                 return true;
             }
