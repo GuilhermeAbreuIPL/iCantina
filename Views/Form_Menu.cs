@@ -237,6 +237,7 @@ namespace iCantina.Views
                 txt_precoAluno.Text = menu.PrecoEstudante.ToString();
                 txt_precoProf.Text = menu.PrecoProfessor.ToString();
 
+
                 foreach (Meal meal in menu.Pratos)
                 {
                     lb_menu.Items.Add(meal);
@@ -304,15 +305,16 @@ namespace iCantina.Views
             }
             List<Meal> listMeal = new List<Meal>();
             List<Extra> listExtra = new List<Extra>();
-            foreach (Meal meal in lb_menu.Items)
+            foreach (object item in lb_menu.Items)
             {
-                
-                listMeal.Add(meal);
-            }
-
-            foreach (Extra extra in lb_menu.Items)
-            {
-                listExtra.Add(extra);
+                if (item is Meal meal)
+                {
+                    listMeal.Add(meal);
+                }
+                else if (item is Extra extra)
+                {
+                    listExtra.Add(extra);
+                }
             }
 
             if (MenuController.UpdateMenu(((Models.Menu)lb_menuExistente.SelectedItem).Id, quantidade, precoProf, precoAluno, diaHora, listMeal ,listExtra ))
