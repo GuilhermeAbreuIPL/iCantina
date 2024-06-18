@@ -59,6 +59,7 @@
             this.lb_pratos.Size = new System.Drawing.Size(221, 388);
             this.lb_pratos.TabIndex = 0;
             this.lb_pratos.SelectedIndexChanged += new System.EventHandler(this.lb_pratos_SelectedIndexChanged);
+            this.lb_pratos.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lb_pratos_Format);
             // 
             // groupBox1
             // 

@@ -15,7 +15,7 @@ namespace iCantina.Controllers
     {
         public static List<Employee> ShowAll()
         {
-            return db.Employees.ToList();
+            return Program.db.Employees.ToList();
         }
         
         public static void AddEmployee(Employee employee)
@@ -23,8 +23,8 @@ namespace iCantina.Controllers
 
             if (IsValid(employee))
             {
-                db.Employees.Add(employee);
-                db.SaveChanges();
+                Program.db.Employees.Add(employee);
+                Program.db.SaveChanges();
                 MessageBox.Show("Adicionado com sucesso!");
             }
             
@@ -32,7 +32,7 @@ namespace iCantina.Controllers
 
         public static void UpdateEmployee(int id, string nome, int nif, string username)
         {
-            Employee querry = db.Employees.FirstOrDefault(e => e.Id == id);
+            Employee querry = Program.db.Employees.FirstOrDefault(e => e.Id == id);
             if (querry != null)
             {
                 try
@@ -40,32 +40,32 @@ namespace iCantina.Controllers
                     querry.Nome = nome;
                     querry.Nif = nif;
                     querry.Username = username;
-                    db.SaveChanges();
+                    Program.db.SaveChanges();
                     MessageBox.Show("Funcionário atualizado com sucesso!");
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Erro ao atualizar funcionário");
-                    db.Dispose();
-                    db = new CantinaContext();
+                    Program.db.Dispose();
+                    Program.db = new CantinaContext();
                 }
             }
         }
 
         public static void DeleteEmployee(int id)
         {
-            Employee querry = db.Employees.FirstOrDefault(e => e.Id == id);
+            Employee querry = Program.db.Employees.FirstOrDefault(e => e.Id == id);
             if (querry != null)
             {
-                db.Employees.Remove(querry);
-                db.SaveChanges();
+                Program.db.Employees.Remove(querry);
+                Program.db.SaveChanges();
                 MessageBox.Show("Funcionário removido com sucesso!");
             }
         }
 
         private static bool isUsernameTaken(Employee employee)
         {
-            var querry = db.Employees.FirstOrDefault(e => e.Username == employee.Username);
+            var querry = Program.db.Employees.FirstOrDefault(e => e.Username == employee.Username);
             if (querry != null)
             {
                 return true;

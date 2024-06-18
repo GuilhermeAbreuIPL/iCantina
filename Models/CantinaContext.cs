@@ -21,10 +21,16 @@ namespace iCantina.Models
 
         public DbSet<Extra> Extras { get; set; }
         public DbSet<Meal> Meals { get; set; }
+        public DbSet<Menu> Menus { get; set; }
 
 
         //set the name of the database to iCantina
-        public CantinaContext() : base("iCantina_new") { }
+        public CantinaContext() : base("iCantina_new") 
+        {
+            this.Configuration.LazyLoadingEnabled = true;
+            //this.Menus.Include(m => m.Pratos).Include(m => m.Extras).Load(); //Load á relação virtual do menu.
+
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

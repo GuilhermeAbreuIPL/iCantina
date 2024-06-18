@@ -21,20 +21,12 @@ namespace iCantina.Models
         public Tipo Tipo { get; set; }
         public bool Ativo { get; set; }
 
+        public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
+
 
         public override string ToString()
         {
-            string estado;
-            if(Ativo == true)
-            {
-                estado = "Ativo";
-            }
-            else
-            {
-                estado = "Inativo";
-            }
-
-            return $"{Descricao} - {Tipo} - {estado}";
+            return $"{Descricao} - {Tipo}";
         }
 
     }

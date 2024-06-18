@@ -15,20 +15,13 @@ namespace iCantina.Models
         public decimal Preco {  get; set; }
         public bool Ativo { get; set; }
 
+        public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
+
         public override string ToString()
         {
-            string estado;
-            if (Ativo == true)
-            {
-                estado = "Ativo";
-            }
-            else
-            {
-                estado = "Inativo";
-            }
-
-            return $"{Descricao} - {Preco} - {estado}";
+            return $"{Descricao} - {Preco}";
         }
+
     }
 
 }

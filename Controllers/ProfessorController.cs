@@ -19,21 +19,21 @@ namespace iCantina.Controllers
             try 
             {
                 SetEmail(professor);
-                db.Professors.Add(professor);
-                db.SaveChanges();
+                Program.db.Professors.Add(professor);
+                Program.db.SaveChanges();
                 MessageBox.Show("Adicionado com sucesso!");
             }
             catch (Exception) 
             {
                 MessageBox.Show("Erro ao adicionar!");
-                db.Dispose();
-                db = new CantinaContext();
+                Program.db.Dispose();
+                Program.db = new CantinaContext();
             }     
         }
 
         public static bool UpdateProfessor(int id, string nome, int nif)
         {
-            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            Professor querry = Program.db.Professors.FirstOrDefault(p => p.Id == id);
             if (querry != null)
             {
                 try
@@ -41,15 +41,15 @@ namespace iCantina.Controllers
                     querry.Nome = nome;
                     querry.Nif = nif;
                     SetEmail(querry);
-                    db.SaveChanges();
+                    Program.db.SaveChanges();
                     MessageBox.Show("Professor atualizado com sucesso!");
                     return true;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Erro ao atualizar professor");
-                    db.Dispose();
-                    db = new CantinaContext();
+                    Program.db.Dispose();
+                    Program.db = new CantinaContext();
                     return false;
                 }
             }
@@ -58,21 +58,21 @@ namespace iCantina.Controllers
 
         public static bool DeleteProfessor(int id)
         {
-            Professor querry = db.Professors.FirstOrDefault(p => p.Id == id);
+            Professor querry = Program.db.Professors.FirstOrDefault(p => p.Id == id);
             if (querry != null)
             {
                 try
                 {
-                    db.Professors.Remove(querry);
-                    db.SaveChanges();
+                    Program.db.Professors.Remove(querry);
+                    Program.db.SaveChanges();
                     MessageBox.Show("Professor removido com sucesso!");
                     return true;
                 }
                 catch (Exception)
                 {
                     MessageBox.Show("Erro ao remover professor");
-                    db.Dispose();
-                    db = new CantinaContext();
+                    Program.db.Dispose();
+                    Program.db = new CantinaContext();
                     return false;
                 }
             }
@@ -81,7 +81,7 @@ namespace iCantina.Controllers
 
         public static Professor GetProfessorByNif(int nif)
         {
-            Professor querry = db.Professors.FirstOrDefault(p => p.Nif == nif);
+            Professor querry = Program.db.Professors.FirstOrDefault(p => p.Nif == nif);
             if (querry != null)
             {
                 return querry;
@@ -91,10 +91,9 @@ namespace iCantina.Controllers
 
         public static List<Professor> ShowAll()
         {
-            return db.Professors.ToList();
+            return Program.db.Professors.ToList();
         }
 
-       
 
         private static void SetEmail(Professor professor)
         {
@@ -114,7 +113,7 @@ namespace iCantina.Controllers
 
         private static bool IsMailTaken(Professor professor)
         {
-            var querry = db.Professors.FirstOrDefault(p => p.Email == professor.Email);
+            var querry = Program.db.Professors.FirstOrDefault(p => p.Email == professor.Email);
             if (querry != null)
             {
                 return true;

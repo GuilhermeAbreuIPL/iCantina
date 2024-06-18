@@ -9,10 +9,10 @@ namespace iCantina.Controllers
 {
     internal class UserController
     {
-        protected static CantinaContext db = Program.DbContext;
+        
         protected static bool IsNifTaken(int nif)
          {
-            var querry = db.Users.FirstOrDefault(s => s.Nif == nif);
+            var querry = Program.db.Users.FirstOrDefault(s => s.Nif == nif);
             if (querry != null)
             {
                 return true;

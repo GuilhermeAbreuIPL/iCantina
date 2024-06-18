@@ -10,14 +10,14 @@ namespace iCantina.Controllers
 {
     internal class MealController
     {
-        protected static CantinaContext db = Program.DbContext;
+        
 
         public static bool AddMeal(Meal meal)
         {
             if (meal != null)
             {
-                db.Meals.Add(meal);
-                db.SaveChanges();
+                Program.db.Meals.Add(meal);
+                Program.db.SaveChanges();
                 return true;
             }
             return false;
@@ -32,13 +32,13 @@ namespace iCantina.Controllers
                 meal.Tipo = tipo;
                 meal.Descricao = descricao;
                 meal.Ativo = state;
-                db.SaveChanges();
+                Program.db.SaveChanges();
                 return true;
                 
             }catch(Exception)
             {
-                db.Dispose();
-                db = new CantinaContext();
+                Program.db.Dispose();
+                Program.db = new CantinaContext();
                 MessageBox.Show("Erro ao atualizar prato");
                 return false;
             }
@@ -49,8 +49,8 @@ namespace iCantina.Controllers
             Meal meal = GetMealById(id);
             if (meal != null)
             {
-                db.Meals.Remove(meal);
-                db.SaveChanges();
+                Program.db.Meals.Remove(meal);
+                Program.db.SaveChanges();
                 return true;
             }
             return false;
@@ -58,12 +58,12 @@ namespace iCantina.Controllers
 
         public static List<Meal> ShowAll()
         {
-            return db.Meals.ToList(); 
+            return Program.db.Meals.ToList(); 
         }
 
         public static Meal GetMealById(int id)
         {
-            Meal querry = db.Meals.FirstOrDefault(m => m.Id == id);
+            Meal querry = Program.db.Meals.FirstOrDefault(m => m.Id == id);
             if (querry != null)
             {
                 return querry;
@@ -73,11 +73,14 @@ namespace iCantina.Controllers
             
         }
 
-      
+        public static List<Meal> GetMealByState(bool state)
+        {
+            return Program.db.Meals.Where(m => m.Ativo == state).ToList();
+        }
 
-        
 
 
-        
+
+
     }
 }

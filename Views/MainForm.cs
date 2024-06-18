@@ -48,6 +48,11 @@ namespace iCantina
             openNewForm(new Form_Extras());
         }
 
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            openNewForm(new Form_Menu());
+        }
+
         private void openNewForm(Form form)
         {
             if (this.ActiveMdiChild != null)

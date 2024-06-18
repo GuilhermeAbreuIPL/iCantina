@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_retirar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -61,7 +62,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.listBox4 = new System.Windows.Forms.ListBox();
             this.monthCalendar2 = new System.Windows.Forms.MonthCalendar();
-            this.btn_retirar = new System.Windows.Forms.Button();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -105,6 +106,16 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Criar Reserva";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btn_retirar
+            // 
+            this.btn_retirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_retirar.Location = new System.Drawing.Point(704, 435);
+            this.btn_retirar.Name = "btn_retirar";
+            this.btn_retirar.Size = new System.Drawing.Size(197, 32);
+            this.btn_retirar.TabIndex = 27;
+            this.btn_retirar.Text = "Retirar";
+            this.btn_retirar.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -401,16 +412,6 @@
             this.monthCalendar2.Name = "monthCalendar2";
             this.monthCalendar2.TabIndex = 0;
             // 
-            // btn_retirar
-            // 
-            this.btn_retirar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_retirar.Location = new System.Drawing.Point(704, 435);
-            this.btn_retirar.Name = "btn_retirar";
-            this.btn_retirar.Size = new System.Drawing.Size(197, 32);
-            this.btn_retirar.TabIndex = 27;
-            this.btn_retirar.Text = "Retirar";
-            this.btn_retirar.UseVisualStyleBackColor = true;
-            // 
             // Form_Reservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -469,5 +470,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btn_retirar;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
     }
 }
