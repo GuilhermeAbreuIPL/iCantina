@@ -53,6 +53,11 @@ namespace iCantina
             openNewForm(new Form_Menu());
         }
 
+        private void btn_multas_Click(object sender, EventArgs e)
+        {
+            openNewForm(new Form_Multas());
+        }
+
         private void openNewForm(Form form)
         {
             if (this.ActiveMdiChild != null)
@@ -66,7 +71,5 @@ namespace iCantina
             
             
         }
-
-        
     } 
 }

@@ -35,6 +35,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.btn_multas = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.btn_multas);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -122,9 +124,21 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(245, 43);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Menu";
+            this.button3.Text = "Menus";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // btn_multas
+            // 
+            this.btn_multas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_multas.Location = new System.Drawing.Point(3, 284);
+            this.btn_multas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_multas.Name = "btn_multas";
+            this.btn_multas.Size = new System.Drawing.Size(245, 43);
+            this.btn_multas.TabIndex = 7;
+            this.btn_multas.Text = "Multas";
+            this.btn_multas.UseVisualStyleBackColor = true;
+            this.btn_multas.Click += new System.EventHandler(this.btn_multas_Click);
             // 
             // MainForm
             // 
@@ -154,6 +168,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_multas;
     }
 }
 

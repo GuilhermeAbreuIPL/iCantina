@@ -166,7 +166,7 @@
             this.groupBox2.Size = new System.Drawing.Size(284, 192);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Criar";
+            this.groupBox2.Text = "Editar";
             // 
             // btn_delete
             // 
