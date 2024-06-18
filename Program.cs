@@ -22,6 +22,8 @@ namespace iCantina
             //Inicialização da base dados
             InitializeDatabase();
 
+            db.Menus.Include(m => m.Pratos).Include(m => m.Extras).Load(); //Testa me
+
             //TODO: Apaga me.
             //EmployeeController.AddEmployee(DbContext, new Employee { Nif = "123123", Nome = "Pedro", Username = "Funcionario fixe" });
             //ProfessorController.AddProfessor(DbContext, new Professor { Nif = "123", Email = "mail@mail", Nome = "Macaco", Saldo = 123 });

@@ -33,6 +33,10 @@ namespace iCantina.Views
             try
             {
                 extra.Preco = Convert.ToDecimal(txt_criarPreco.Text);
+                if( extra.Preco <= 0 ) {
+                    MessageBox.Show("O preço não pode ser menor nem igual a 0");
+                    return;
+                }
             }
             catch (Exception)
             {
@@ -75,6 +79,11 @@ namespace iCantina.Views
                 try
                 {
                     selected.Preco = Convert.ToDecimal(txt_editPreco.Text);
+                    if (selected.Preco <= 0)
+                    {
+                        MessageBox.Show("O preço não pode ser menor nem igual a 0");
+                        return;
+                    }
                 }
                 catch (Exception)
                 {

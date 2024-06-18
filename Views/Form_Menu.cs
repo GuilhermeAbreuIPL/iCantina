@@ -99,19 +99,19 @@ namespace iCantina.Views
             decimal precoAluno;
             decimal precoProf;
       
-            if (!int.TryParse(txt_quantidade.Text, out quantidade))
+            if (!int.TryParse(txt_quantidade.Text, out quantidade) || quantidade <= 0)
             {
                 MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
                 return;
             }
 
-            if (!decimal.TryParse(txt_precoAluno.Text, out precoAluno))
+            if (!decimal.TryParse(txt_precoAluno.Text, out precoAluno) || precoAluno <= 0)
             {
                 MessageBox.Show("Preço referente ao aluno tem de ser um número!");
                 return;
             }
 
-            if (!decimal.TryParse(txt_precoProf.Text, out precoProf))
+            if (!decimal.TryParse(txt_precoProf.Text, out precoProf) || precoProf <= 0)
             {
                 MessageBox.Show("Preço referente ao professor tem de ser um número!");
                 return;
@@ -158,6 +158,8 @@ namespace iCantina.Views
             { 
                 MessageBox.Show("Menu criado com sucesso!");
                 ClearMenu();
+                lb_menuExistente.DataSource = null;
+                lb_menuExistente.DataSource = MenuController.GetMenus();
                 return;
             }
             else
@@ -222,6 +224,7 @@ namespace iCantina.Views
         {
             ClearMenu();
             btn_criar.Enabled = true;
+            btn_editar.Enabled = false;
         }
 
         private void btn_selecionar_Click(object sender, EventArgs e)
@@ -231,6 +234,9 @@ namespace iCantina.Views
             {
                 ClearMenu();
                 btn_criar.Enabled = false;
+                btn_apagarExistente.Enabled = true;
+                btn_editar.Enabled = true;
+
                 dtp_data.Value = menu.DataHora;
                 cb_horario.SelectedValue = menu.DataHora.ToString("HH:mm:ss");
                 txt_quantidade.Text = menu.Quantidade.ToString();
@@ -322,6 +328,7 @@ namespace iCantina.Views
                 MessageBox.Show("Menu atualizado com sucesso!");
                 ClearMenu();
                 btn_criar.Enabled = true;
+                btn_editar.Enabled = false;
                 return;
             }
             else
@@ -346,8 +353,37 @@ namespace iCantina.Views
             dtp_data.Value = DateTime.Now;
             txt_precoAluno.Clear();
             txt_precoProf.Clear();
+            btn_apagarExistente.Enabled = false;
+
         }
 
-       
+        private void btn_apagarExistente_Click(object sender, EventArgs e)
+        {
+            Models.Menu menu = (Models.Menu)lb_menuExistente.SelectedItem;
+            if (menu != null)
+            {
+                if (MenuController.DeleteMenu(menu.Id))
+                {
+                    MessageBox.Show("Removido com sucesso!");
+                    ClearMenu();
+                    lb_menuExistente.DataSource = null;
+                    lb_menuExistente.DataSource = MenuController.GetMenus();
+                    btn_apagarExistente.Enabled = false;
+                    btn_criar.Enabled = true;
+                    btn_editar.Enabled = false;
+                   
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao remover!");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tem de selecionar um menu para o poder apagar!");
+            }
+        }
     }
 }

@@ -28,7 +28,7 @@ namespace iCantina.Models
         public CantinaContext() : base("iCantina_new") 
         {
             this.Configuration.LazyLoadingEnabled = true;
-            this.Menus.Include(m => m.Pratos).Include(m => m.Extras).Load(); //Load á relação virtual do menu.
+            //this.Menus.Include(m => m.Pratos).Include(m => m.Extras).Load(); //Load á relação virtual do menu.
 
         }
 

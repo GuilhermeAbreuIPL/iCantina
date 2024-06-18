@@ -29,6 +29,18 @@ namespace iCantina.Controllers
             return Program.db.Menus.ToList();
         }
 
+        public static bool DeleteMenu(int id)
+        {
+            Models.Menu querry = Program.db.Menus.FirstOrDefault(m => m.Id == id);
+            if (querry != null)
+            {
+                Program.db.Menus.Remove(querry);
+                Program.db.SaveChanges();
+                return true;
+            }
+            return false;
+        }
+
         public static bool UpdateMenu(int id, int quantidade, decimal precoProf, decimal precoAluno, DateTime data, List<Meal> meal, List<Extra> extra)
         {
             try
