@@ -42,9 +42,9 @@ namespace iCantina.Views
             fee.valor = Convert.ToDecimal(txt_valorCriar.Text);
             fee.numHoras = nud_numHorasCriar.Value;
 
-            int valor = 0;
+            decimal valor = 0;
 
-            if (!int.TryParse(txt_valorCriar.Text, out valor) || valor <= 0)
+            if (!decimal.TryParse(txt_valorCriar.Text, out valor) || valor <= 0)
             {
                 MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
                 return;
@@ -80,9 +80,11 @@ namespace iCantina.Views
                 selected.valor = Convert.ToDecimal(txt_valorEdit.Text);
                 selected.numHoras = nud_numHorasEdit.Value;
 
-                int valor = 0;
+                
+                decimal valor;
+                decimal.TryParse(txt_valorEdit.Text, out valor);
 
-                if (!int.TryParse(txt_valorEdit.Text, out valor) || valor <= 0)
+                if (valor <= 0)
                 {
                     MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
                     return;
