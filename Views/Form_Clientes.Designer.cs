@@ -56,7 +56,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txt_nome = new System.Windows.Forms.TextBox();
             this.btn_mostrarTodos = new System.Windows.Forms.Button();
-            this.btn_select = new System.Windows.Forms.Button();
             this.lb_cliente = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tp_funcionarios = new System.Windows.Forms.TabPage();
@@ -105,7 +104,6 @@
             this.tp_cliente.Controls.Add(this.gb_cliente);
             this.tp_cliente.Controls.Add(this.groupBoxUser);
             this.tp_cliente.Controls.Add(this.btn_mostrarTodos);
-            this.tp_cliente.Controls.Add(this.btn_select);
             this.tp_cliente.Controls.Add(this.lb_cliente);
             this.tp_cliente.Controls.Add(this.label1);
             this.tp_cliente.Location = new System.Drawing.Point(4, 25);
@@ -397,16 +395,6 @@
             this.btn_mostrarTodos.UseVisualStyleBackColor = true;
             this.btn_mostrarTodos.Click += new System.EventHandler(this.btn_mostrarTodos_Click);
             // 
-            // btn_select
-            // 
-            this.btn_select.Location = new System.Drawing.Point(389, 447);
-            this.btn_select.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_select.Name = "btn_select";
-            this.btn_select.Size = new System.Drawing.Size(111, 23);
-            this.btn_select.TabIndex = 20;
-            this.btn_select.Text = "Select";
-            this.btn_select.UseVisualStyleBackColor = true;
-            // 
             // lb_cliente
             // 
             this.lb_cliente.FormattingEnabled = true;
@@ -590,7 +578,6 @@
         private System.Windows.Forms.TabPage tp_cliente;
         private System.Windows.Forms.TabPage tp_funcionarios;
         private System.Windows.Forms.Button btn_mostrarTodos;
-        private System.Windows.Forms.Button btn_select;
         private System.Windows.Forms.ListBox lb_cliente;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;

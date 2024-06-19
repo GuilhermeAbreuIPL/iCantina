@@ -35,7 +35,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.btn_multas = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cb_funcionario = new System.Windows.Forms.ComboBox();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -46,6 +51,8 @@
             this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Controls.Add(this.button2);
             this.flowLayoutPanel1.Controls.Add(this.button3);
+            this.flowLayoutPanel1.Controls.Add(this.btn_multas);
+            this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -86,7 +93,7 @@
             this.btn_reservas.Name = "btn_reservas";
             this.btn_reservas.Size = new System.Drawing.Size(245, 43);
             this.btn_reservas.TabIndex = 3;
-            this.btn_reservas.Text = "Visualizar Reservas";
+            this.btn_reservas.Text = "Reservas";
             this.btn_reservas.UseVisualStyleBackColor = true;
             this.btn_reservas.Click += new System.EventHandler(this.btn_reservas_Click);
             // 
@@ -122,9 +129,57 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(245, 43);
             this.button3.TabIndex = 6;
-            this.button3.Text = "Menu";
+            this.button3.Text = "Menus";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // btn_multas
+            // 
+            this.btn_multas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_multas.Location = new System.Drawing.Point(3, 284);
+            this.btn_multas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_multas.Name = "btn_multas";
+            this.btn_multas.Size = new System.Drawing.Size(245, 43);
+            this.btn_multas.TabIndex = 7;
+            this.btn_multas.Text = "Multas";
+            this.btn_multas.UseVisualStyleBackColor = true;
+            this.btn_multas.Click += new System.EventHandler(this.btn_multas_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.cb_funcionario, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btn_refresh, 0, 2);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 332);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.28571F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.71428F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(245, 179);
+            this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // cb_funcionario
+            // 
+            this.cb_funcionario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_funcionario.FormattingEnabled = true;
+            this.cb_funcionario.Location = new System.Drawing.Point(3, 105);
+            this.cb_funcionario.Name = "cb_funcionario";
+            this.cb_funcionario.Size = new System.Drawing.Size(239, 24);
+            this.cb_funcionario.TabIndex = 1;
+            this.cb_funcionario.SelectedIndexChanged += new System.EventHandler(this.cb_funcionario_SelectedIndexChanged);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(3, 140);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(239, 34);
+            this.btn_refresh.TabIndex = 2;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // MainForm
             // 
@@ -141,6 +196,7 @@
             this.Text = "iCantina";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,6 +210,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_multas;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        public System.Windows.Forms.ComboBox cb_funcionario;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }
 
