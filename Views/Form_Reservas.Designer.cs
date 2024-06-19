@@ -63,21 +63,21 @@
             this.txt_nif = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.txt_extra3 = new System.Windows.Forms.TextBox();
+            this.txt_extra2 = new System.Windows.Forms.TextBox();
+            this.txt_extra1 = new System.Windows.Forms.TextBox();
+            this.txt_prato = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.dtp_verReserva = new System.Windows.Forms.DateTimePicker();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btn_reserva = new System.Windows.Forms.Button();
             this.lb_reservasfeitas = new System.Windows.Forms.ListBox();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.txt_prato = new System.Windows.Forms.TextBox();
-            this.txt_extra1 = new System.Windows.Forms.TextBox();
-            this.txt_extra2 = new System.Windows.Forms.TextBox();
-            this.txt_extra3 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gb_all.SuspendLayout();
@@ -481,7 +481,7 @@
             this.tabPage2.Controls.Add(this.label11);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.button5);
+            this.tabPage2.Controls.Add(this.btn_reserva);
             this.tabPage2.Controls.Add(this.lb_reservasfeitas);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -491,6 +491,74 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Ver Reservas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // txt_extra3
+            // 
+            this.txt_extra3.Location = new System.Drawing.Point(694, 170);
+            this.txt_extra3.Name = "txt_extra3";
+            this.txt_extra3.ReadOnly = true;
+            this.txt_extra3.Size = new System.Drawing.Size(166, 22);
+            this.txt_extra3.TabIndex = 49;
+            // 
+            // txt_extra2
+            // 
+            this.txt_extra2.Location = new System.Drawing.Point(694, 136);
+            this.txt_extra2.Name = "txt_extra2";
+            this.txt_extra2.ReadOnly = true;
+            this.txt_extra2.Size = new System.Drawing.Size(166, 22);
+            this.txt_extra2.TabIndex = 48;
+            // 
+            // txt_extra1
+            // 
+            this.txt_extra1.Location = new System.Drawing.Point(694, 105);
+            this.txt_extra1.Name = "txt_extra1";
+            this.txt_extra1.ReadOnly = true;
+            this.txt_extra1.Size = new System.Drawing.Size(166, 22);
+            this.txt_extra1.TabIndex = 47;
+            // 
+            // txt_prato
+            // 
+            this.txt_prato.Location = new System.Drawing.Point(694, 71);
+            this.txt_prato.Name = "txt_prato";
+            this.txt_prato.ReadOnly = true;
+            this.txt_prato.Size = new System.Drawing.Size(166, 22);
+            this.txt_prato.TabIndex = 46;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(636, 170);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(50, 16);
+            this.label17.TabIndex = 44;
+            this.label17.Text = "Extra 3:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(636, 105);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(50, 16);
+            this.label16.TabIndex = 43;
+            this.label16.Text = "Extra 1:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(636, 136);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 16);
+            this.label15.TabIndex = 42;
+            this.label15.Text = "Extra 2:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(636, 71);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(42, 16);
+            this.label14.TabIndex = 41;
+            this.label14.Text = "Prato:";
             // 
             // dtp_verReserva
             // 
@@ -532,16 +600,16 @@
             this.label8.TabIndex = 37;
             this.label8.Text = "Dias da Reserva";
             // 
-            // button5
+            // btn_reserva
             // 
-            this.button5.Location = new System.Drawing.Point(639, 252);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(264, 44);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Usar Reserva";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn_reserva.Location = new System.Drawing.Point(639, 252);
+            this.btn_reserva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_reserva.Name = "btn_reserva";
+            this.btn_reserva.Size = new System.Drawing.Size(264, 44);
+            this.btn_reserva.TabIndex = 7;
+            this.btn_reserva.Text = "Usar Reserva";
+            this.btn_reserva.UseVisualStyleBackColor = true;
+            this.btn_reserva.Click += new System.EventHandler(this.btn_reserva_Click);
             // 
             // lb_reservasfeitas
             // 
@@ -553,74 +621,6 @@
             this.lb_reservasfeitas.Size = new System.Drawing.Size(264, 244);
             this.lb_reservasfeitas.TabIndex = 1;
             this.lb_reservasfeitas.SelectedIndexChanged += new System.EventHandler(this.lb_reservasfeitas_SelectedIndexChanged);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(636, 71);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(42, 16);
-            this.label14.TabIndex = 41;
-            this.label14.Text = "Prato:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(636, 136);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(50, 16);
-            this.label15.TabIndex = 42;
-            this.label15.Text = "Extra 2:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(636, 105);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(50, 16);
-            this.label16.TabIndex = 43;
-            this.label16.Text = "Extra 1:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(636, 170);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(50, 16);
-            this.label17.TabIndex = 44;
-            this.label17.Text = "Extra 3:";
-            // 
-            // txt_prato
-            // 
-            this.txt_prato.Location = new System.Drawing.Point(694, 71);
-            this.txt_prato.Name = "txt_prato";
-            this.txt_prato.ReadOnly = true;
-            this.txt_prato.Size = new System.Drawing.Size(166, 22);
-            this.txt_prato.TabIndex = 46;
-            // 
-            // txt_extra1
-            // 
-            this.txt_extra1.Location = new System.Drawing.Point(694, 105);
-            this.txt_extra1.Name = "txt_extra1";
-            this.txt_extra1.ReadOnly = true;
-            this.txt_extra1.Size = new System.Drawing.Size(166, 22);
-            this.txt_extra1.TabIndex = 47;
-            // 
-            // txt_extra2
-            // 
-            this.txt_extra2.Location = new System.Drawing.Point(694, 136);
-            this.txt_extra2.Name = "txt_extra2";
-            this.txt_extra2.ReadOnly = true;
-            this.txt_extra2.Size = new System.Drawing.Size(166, 22);
-            this.txt_extra2.TabIndex = 48;
-            // 
-            // txt_extra3
-            // 
-            this.txt_extra3.Location = new System.Drawing.Point(694, 170);
-            this.txt_extra3.Name = "txt_extra3";
-            this.txt_extra3.ReadOnly = true;
-            this.txt_extra3.Size = new System.Drawing.Size(166, 22);
-            this.txt_extra3.TabIndex = 49;
             // 
             // Form_Reservas
             // 
@@ -652,7 +652,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ListBox lb_reservasfeitas;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btn_reserva;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;

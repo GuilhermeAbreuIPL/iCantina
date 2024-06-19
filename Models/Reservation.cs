@@ -16,12 +16,12 @@ namespace iCantina.Models
         public Menu Menu { get; set; }
         public bool Consumido { get; set; }
 
-        /*
+        
         public override string ToString()
         {
             return $"{Customer.Nome} - {Customer.Nif}";
         }
-        */
+        
     }
     
 }
