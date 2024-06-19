@@ -17,6 +17,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System;
 using System.IO;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace iCantina.Views
 {
@@ -110,7 +111,8 @@ namespace iCantina.Views
                         {
                             MessageBox.Show("Foi aplicada uma multa de " + fee + "€");
                         }
-                        
+
+
                         txt_precoTotal.Text = _precoTotal.ToString();
                         return;
 
@@ -253,6 +255,16 @@ namespace iCantina.Views
             reservation.Meal = lb_reservar.Items.OfType<Meal>().First();
             reservation.Menu = (Models.Menu)lb_menus.SelectedItem;
 
+            //se a quantidade for menos do que 0 nao deixa fazer a reserva e mostra mensagem de erro
+            if (reservation.Menu.Quantidade <= 0)
+            {
+                MessageBox.Show("Erro ao fazer a reserva, quantidade insuficiente");
+                return;
+            }
+
+            reservation.Menu.Quantidade -= 1;
+            MenuController.UpdateMenuQuantidade(reservation.Menu.Id, reservation.Menu.Quantidade);
+
             if (ReservationController.AddReservation(reservation))
             {
                 MessageBox.Show("Reserva feita com sucesso");
@@ -268,16 +280,6 @@ namespace iCantina.Views
 
                 //diminuir 1 na quantidade do menu
                 Models.Menu menu = (Models.Menu)lb_menus.SelectedItem;
-
-                //se a quantidade for menos do que 0 nao deixa fazer a reserva e mostra mensagem de erro
-                if (menu.Quantidade <= 0)
-                {
-                    MessageBox.Show("Erro ao fazer a reserva, quantidade insuficiente");
-                    return;
-                }
-
-                menu.Quantidade -= 1;
-                MenuController.UpdateMenuQuantidade(menu.Id, menu.Quantidade);
 
                 //limpar tudo
                 txt_precoExtra.Text = "0,00";
@@ -569,6 +571,7 @@ namespace iCantina.Views
             txt_extra3.Text = "";
             txt_prato.Text = "";
         }
+
     }
 
 }
