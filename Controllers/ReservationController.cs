@@ -27,5 +27,19 @@ namespace iCantina.Controllers
 
             return false;
         }
+
+        
+        public static List<Reservation> GetReservationsByDate(DateTime date)
+        {
+            //Função utilizada para mostar as reservas de um determinado dia.
+            List<Reservation> querry = Program.db.Reservations.Where(r => r.Menu.DataHora.Year == date.Year && r.Menu.DataHora.Month == date.Month && r.Menu.DataHora.Day == date.Day).ToList();
+            return querry;
+        }
+
+
+
+
+
     }
+    
 }

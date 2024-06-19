@@ -7,10 +7,16 @@ using System.Data;
 using System.Data.Entity.Core.Common.EntitySql;
 using System.Drawing;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System;
+using System.IO;
 
 namespace iCantina.Views
 {
@@ -247,6 +253,12 @@ namespace iCantina.Views
             if (ReservationController.AddReservation(reservation))
             {
                 MessageBox.Show("Reserva feita com sucesso");
+
+                //funcao imprimir fatura em txt
+                ImprimirFaturaTxt(reservation);
+                //funcao imprimir fatura em pdf
+                ImprimirFaturaPdf(reservation);
+
                 //TODO: Atualizar saldo
                 CustomerController.MakePayment(_nifSelecionado, _precoTotal);
                 txt_saldo.Text = (decimal.Parse(txt_saldo.Text) - _precoTotal).ToString();
@@ -345,8 +357,146 @@ namespace iCantina.Views
         /* Parte ver Reservas */
         private void dtp_verReserva_ValueChanged(object sender, EventArgs e)
         {
+            //quando a data é colocada ele mostra na lb_reservasfeitas as reservas feitas nesse dia
+            lb_reservasfeitas.DataSource = ReservationController.GetReservationsByDate(dtp_verReserva.Value);
 
         }
+
+        private void lb_reservasfeitas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lb_reservasfeitas.SelectedItem != null && lb_reservasfeitas.SelectedItem.GetType() == typeof(Reservation))
+            {
+                
+                
+                    Reservation reservation = (Reservation)lb_reservasfeitas.SelectedItem;
+                    
+
+
+
+                    if (reservation != null)
+                    {
+                        lb_detalhereservas.Items.Add(reservation.Meal);
+                        Console.WriteLine(reservation.Extra[0].ToString());
+                        
+                        
+                    
+                        
+                    }
+                
+                
+            }
+        }
+
+        //funcao para imprimir fatura em txt
+        private void ImprimirFaturaTxt(Reservation reserva)
+        {
+            try
+            {
+                string path = "Recibo";
+                string fileName = "Fatura_" + reserva.Id + ".txt";
+                string fullPath = Path.Combine(path, fileName);
+
+                // Verificar se a pasta existe, e criar se não existir
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                using (StreamWriter sw = new StreamWriter(fullPath))
+                {
+                    sw.WriteLine("Fatura nº: " + reserva.Id);
+                    sw.WriteLine("Data: " + reserva.Menu.DataHora);
+                    sw.WriteLine("Nome: " + reserva.Customer.Nome);
+                    sw.WriteLine("NIF: " + reserva.Customer.Nif);
+                    sw.WriteLine("Prato: " + reserva.Meal.Descricao);
+                    sw.WriteLine("Extras: ");
+                    foreach (Extra extra in reserva.Extra)
+                    {
+                        sw.WriteLine(extra.Descricao);
+                    }
+
+                    decimal fee = CheckMulta();
+                    if (fee != 0)
+                    {
+                        sw.WriteLine("Multa: " + fee);
+                    }
+                    sw.WriteLine("Preço total: " + _precoTotal);
+                }
+
+                MessageBox.Show("Fatura TXT gerada com sucesso.");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("Acesso negado ao caminho: " + ex.Message);
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                MessageBox.Show("Diretório não encontrado: " + ex.Message);
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Erro de I/O: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+            }
+        }
+
+        private void ImprimirFaturaPdf(Reservation reserva)
+        {
+            try
+            {
+                string path = "Fatura";
+                string fileName = "Fatura_" + reserva.Id + ".pdf";
+                string fullPath = Path.Combine(path, fileName);
+
+                // Verificar se a pasta existe, e criar se não existir
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+
+                // Cria o documento PDF
+                Document document = new Document();
+                PdfWriter.GetInstance(document, new FileStream(fullPath, FileMode.Create));
+                document.Open();
+
+                // Adiciona conteúdo ao documento
+                document.Add(new Paragraph("Fatura nº: " + reserva.Id));
+                document.Add(new Paragraph("Data: " + reserva.Menu.DataHora));
+                document.Add(new Paragraph("Nome: " + reserva.Customer.Nome));
+                document.Add(new Paragraph("NIF: " + reserva.Customer.Nif));
+                document.Add(new Paragraph("Prato: " + reserva.Meal.Descricao));
+                document.Add(new Paragraph("Extras:"));
+
+                foreach (Extra extra in reserva.Extra)
+                {
+                    document.Add(new Paragraph(extra.Descricao));
+                }
+
+                decimal fee = CheckMulta();
+                if (fee != 0)
+                {
+                    document.Add(new Paragraph("Multa: " + fee));
+                }
+                document.Add(new Paragraph("Preço total: " + _precoTotal));
+
+                // Fecha o documento
+                document.Close();
+
+                MessageBox.Show("Fatura PDF gerada com sucesso.");
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                MessageBox.Show("Acesso negado ao caminho: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro: " + ex.Message);
+            }
+        }
+
     }
 
 }
