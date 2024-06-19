@@ -87,6 +87,9 @@ namespace iCantina.Views
                     lb_reservar.Items.Add(meal);
                     Models.Menu menu = (Models.Menu)lb_menus.SelectedItem;
 
+                    //chama a função que verifica se existe multa para aplicar ou não em bool
+                    decimal fee = CheckMulta();
+
                     if (_tipoCustomer == tipoCustomer.Estudante)
                     {
                         txt_precoPrato.Text = menu.PrecoEstudante.ToString();
@@ -304,6 +307,22 @@ namespace iCantina.Views
             txt_precoExtra.Text = "0,00";
             txt_precoPrato.Text = "0,00";
             txt_precoTotal.Text = "0,00";
+        }
+
+        private decimal CheckMulta()
+        {
+            //vai buscar a hora do menu selecionado e guarda na variavel horaReserva
+            Fee fee;
+            DateTime horaReserva = ((Models.Menu)lb_menus.SelectedItem).DataHora;
+            TimeSpan tempoRestante = FeeController.CalcularTempoRestante(horaReserva.Hour);
+            fee = FeeController.ProcurarMulta(tempoRestante);
+            if(fee == null)
+            {
+                return 0;
+            }
+            
+            
+            return fee.valor;
         }
 
     }

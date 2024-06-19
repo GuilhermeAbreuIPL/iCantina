@@ -58,7 +58,7 @@ namespace iCantina.Controllers
             return Program.db.Fees.Find(id);
         }
 
-        /*
+        
         public static DateTime ObterHoraAtual()
         {
             return DateTime.Now;
@@ -77,7 +77,31 @@ namespace iCantina.Controllers
 
             TimeSpan tempoRestante = horaReservaDateTime - horaAtual;
             return tempoRestante;
-        } */
+        } 
+
+        public static Fee ProcurarMulta(TimeSpan tempoRestante)
+        {
+            
+            List<Fee> multas = Program.db.Fees.ToList();
+            List<Fee> multasOrdenadas = multas.OrderBy(m => m.numHoras).ToList();
+            if(multas == null)
+            {
+                //Return null pois não existem multas
+                return null;
+            }
+            else
+            {
+                //Check se existe alguma multa que se aplique ao tempo restante de forma a devolver a multa correta
+                foreach (Fee multa in multasOrdenadas)
+                {
+                    if (tempoRestante.TotalHours <= Double.Parse(multa.numHoras.ToString()))
+                    {
+                        return multa;
+                    }
+                }
+            }
+            return null;
+        }
 
         public static List<Fee> ShowAll()
         {
