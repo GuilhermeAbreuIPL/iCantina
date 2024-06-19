@@ -36,11 +36,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -56,20 +62,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\ExtraController.cs" />
+    <Compile Include="Controllers\FeeController.cs" />
+    <Compile Include="Controllers\MealController.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
+    <Compile Include="Controllers\ProfessorController.cs" />
+    <Compile Include="Controllers\ReservationController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Migrations\202406162136174_InitialCreate.cs" />
+    <Compile Include="Migrations\202406162136174_InitialCreate.designer.cs">
+      <DependentUpon>202406162136174_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406162214332_AddUniqueConstraintOnNumEstudante.cs" />
+    <Compile Include="Migrations\202406162214332_AddUniqueConstraintOnNumEstudante.designer.cs">
+      <DependentUpon>202406162214332_AddUniqueConstraintOnNumEstudante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202406170117543_AddUniqueIndexToUsername.cs" />
+    <Compile Include="Migrations\202406170117543_AddUniqueIndexToUsername.designer.cs">
+      <DependentUpon>202406170117543_AddUniqueIndexToUsername.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Extra.cs" />
+    <Compile Include="Models\Fee.cs" />
+    <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Views\Form_Cliente.cs">
+    <Compile Include="Views\Form_Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Form_Cliente.Designer.cs">
-      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    <Compile Include="Views\Form_Clientes.Designer.cs">
+      <DependentUpon>Form_Clientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Form_Funcionarios.cs">
+    <Compile Include="Views\Form_Extras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Form_Funcionarios.Designer.cs">
-      <DependentUpon>Form_Funcionarios.cs</DependentUpon>
+    <Compile Include="Views\Form_Extras.Designer.cs">
+      <DependentUpon>Form_Extras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_Menu.Designer.cs">
+      <DependentUpon>Form_Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_Multas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_Multas.Designer.cs">
+      <DependentUpon>Form_Multas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_Pratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_Pratos.Designer.cs">
+      <DependentUpon>Form_Pratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Form_Reservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Form_Reservas.Designer.cs">
+      <DependentUpon>Form_Reservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
@@ -80,12 +140,21 @@
     <Compile Include="Models\CantinaContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\Teste.cs">
+    <Compile Include="Views\Form_RegistarUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\Teste.Designer.cs">
-      <DependentUpon>Teste.cs</DependentUpon>
+    <Compile Include="Views\Form_RegistarUser.Designer.cs">
+      <DependentUpon>Form_RegistarUser.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\202406162136174_InitialCreate.resx">
+      <DependentUpon>202406162136174_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406162214332_AddUniqueConstraintOnNumEstudante.resx">
+      <DependentUpon>202406162214332_AddUniqueConstraintOnNumEstudante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202406170117543_AddUniqueIndexToUsername.resx">
+      <DependentUpon>202406170117543_AddUniqueIndexToUsername.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -95,17 +164,29 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Views\Form_Cliente.resx">
-      <DependentUpon>Form_Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Form_Clientes.resx">
+      <DependentUpon>Form_Clientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Form_Funcionarios.resx">
-      <DependentUpon>Form_Funcionarios.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Form_Extras.resx">
+      <DependentUpon>Form_Extras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Menu.resx">
+      <DependentUpon>Form_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Multas.resx">
+      <DependentUpon>Form_Multas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Pratos.resx">
+      <DependentUpon>Form_Pratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Form_Reservas.resx">
+      <DependentUpon>Form_Reservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\Teste.resx">
-      <DependentUpon>Teste.cs</DependentUpon>
+    <EmbeddedResource Include="Views\Form_RegistarUser.resx">
+      <DependentUpon>Form_RegistarUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -121,9 +202,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

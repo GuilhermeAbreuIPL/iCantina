@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace iCantina.Models
 {
-    internal class Employee
+    internal class Employee : User
     {
-        public int Id { get; set; }
+        //Funcionário
+
+
         public string Username { get; set; }
-        public User User { get; set; }
+        
+        override public string ToString()
+        {
+            return $"{Nome} - {Nif}";
+        }
+
     }
 }

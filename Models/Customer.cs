@@ -1,15 +1,23 @@
-﻿using System;
+﻿using iCantina.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace iCantina.Models
 {
-    internal class Customer
+    internal class Customer : User
     {
-        public int Id { get; set; }
         public decimal Saldo { get; set; }
-        public User User { get; set; }
+        public List<Reservation> Reservations { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Nome} - {Nif} - {GetType().Name}";
+        }
     }
+
+    
 }
