@@ -6,7 +6,7 @@ Projeto da Unidade Curricular Desenvolvimento de Aplicações do segundo semestr
 ## **Descrição**:
 O projeto tem como objetivo geral criar um sistema de gestão de uma cantina e desta forma emular a realidade. Para isso será necessário um software que implemente todas as funcionalidades necessárias para gerir toda a operação, gerir as refeições, emitir menus para os clientes, guardar dados de todos os clientes, criar várias multas para diferentes tempos, criar funcionários, entre outros.
 
-## ** O Modelo de Utilização: **:
+## **O Modelo de Utilização:**:
 Nota1: Para que possamos testar o programa sem ter algum problema com a base de dados é necessário apagar a base de dados se esta existir e na consola utilizar o comando ‘Update-database’ (apenas é necessário realizar este passo 1 vez se não for alterado algum modelo)
 Nota 2: O email do professor na área ‘Users’ é criado automaticamente através do seu nome e agrupamento. Ex: ‘nome@my.ipleiria.pt’. Se já existir um email com esse nome, é acrescentado a frente do nome um número que vai crescendo conforme a criação de emails. Ex ‘nome1@my.ipleiria.pt’, ‘nome2@my.ipleiria.pt’.
 Nota 3:	 Tem de correr isto na consola do visual studio para correr PDF: ‘ Install-Package iTextSharp -Version 5.5.13.2 ‘
