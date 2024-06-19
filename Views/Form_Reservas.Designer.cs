@@ -609,6 +609,7 @@
             this.btn_reserva.TabIndex = 7;
             this.btn_reserva.Text = "Usar Reserva";
             this.btn_reserva.UseVisualStyleBackColor = true;
+            this.btn_reserva.Click += new System.EventHandler(this.btn_reserva_Click);
             // 
             // lb_reservasfeitas
             // 
