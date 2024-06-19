@@ -24,6 +24,7 @@ namespace iCantina.Views
         private tipoCustomer _tipoCustomer;
         private decimal _totalExtra = 0;
         private decimal _precoTotal = 0;
+        private int _nifSelecionado;
         public Form_Reservas()
         {
             InitializeComponent();
@@ -134,16 +135,23 @@ namespace iCantina.Views
 
         private void btn_procurar_Click(object sender, EventArgs e)
         {
+            ClearReservaAndItems();
             int nif;
             if (txt_nif.Text.Length == 9 && int.TryParse(txt_nif.Text, out nif))
             {
                 if (StudentController.GetStudentByNif(nif) != null)
                 {
+                    _nifSelecionado = nif;
 
                     Student student = StudentController.GetStudentByNif(nif);
 
                     txt_saldo.Text = student.Saldo.ToString();
-                    txt_nome.Text = student.Nome;
+                    txt_nome.Text = student.Nome + " - Student";
+                    
+                    
+                    
+                    
+
                     _tipoCustomer = tipoCustomer.Estudante;
 
                     gb_all.Enabled = true;
@@ -153,10 +161,11 @@ namespace iCantina.Views
 
                 if (ProfessorController.GetProfessorByNif(nif) != null)
                 {
+                    _nifSelecionado = nif;
                     Professor professor = ProfessorController.GetProfessorByNif(nif);
 
                     txt_saldo.Text = professor.Saldo.ToString();
-                    txt_nome.Text = professor.Nome;
+                    txt_nome.Text = professor.Nome + " - Professor";
                     _tipoCustomer = tipoCustomer.Professor;
 
                     gb_all.Enabled = true;
@@ -195,7 +204,7 @@ namespace iCantina.Views
 
             if (_tipoCustomer == tipoCustomer.Estudante)
             {
-                if (_precoTotal > StudentController.GetStudentByNif(int.Parse(txt_nif.Text)).Saldo)
+                if (_precoTotal > StudentController.GetStudentByNif(_nifSelecionado).Saldo)
                 {
                     MessageBox.Show("Saldo insuficiente");
                     return;
@@ -203,7 +212,7 @@ namespace iCantina.Views
             }
             else if (_tipoCustomer == tipoCustomer.Professor)
             {
-                if (_precoTotal > ProfessorController.GetProfessorByNif(int.Parse(txt_nif.Text)).Saldo)
+                if (_precoTotal > ProfessorController.GetProfessorByNif(_nifSelecionado).Saldo)
                 {
                     MessageBox.Show("Saldo insuficiente");
                     return;
@@ -211,7 +220,7 @@ namespace iCantina.Views
             }
 
             Reservation reservation = new Reservation();
-            reservation.Customer = CustomerController.GetCustomerByNif(int.Parse(txt_nif.Text));
+            reservation.Customer = CustomerController.GetCustomerByNif(_nifSelecionado);
             reservation.Consumido = false;
             reservation.Extra = lb_reservar.Items.OfType<Extra>().ToList();
             reservation.Meal = lb_reservar.Items.OfType<Meal>().First();
@@ -221,6 +230,15 @@ namespace iCantina.Views
             {
                 MessageBox.Show("Reserva feita com sucesso");
                 //TODO: Atualizar saldo
+                CustomerController.MakePayment(_nifSelecionado, _precoTotal);
+                txt_saldo.Text = (decimal.Parse(txt_saldo.Text) - _precoTotal).ToString();
+
+                txt_precoExtra.Text = "0,00";
+                txt_precoPrato.Text = "0,00";
+                txt_precoTotal.Text = "0,00";
+                _precoTotal = 0;
+                _totalExtra = 0;
+                lb_reservar.Items.Clear();
             }
             else
             {
@@ -287,6 +305,7 @@ namespace iCantina.Views
             txt_precoPrato.Text = "0,00";
             txt_precoTotal.Text = "0,00";
         }
+
     }
 
 }

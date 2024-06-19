@@ -1,6 +1,7 @@
 ﻿using iCantina.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,18 @@ namespace iCantina.Controllers
             }
 
             return -1;
+        }
+
+        public static bool MakePayment(int nif, decimal saldo)
+        {
+            Customer customer = Program.db.Customers.FirstOrDefault(c => c.Nif == nif);
+            if(customer != null)
+            {
+                customer.Saldo -= saldo;
+                Program.db.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 }

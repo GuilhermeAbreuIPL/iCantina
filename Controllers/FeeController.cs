@@ -58,6 +58,27 @@ namespace iCantina.Controllers
             return Program.db.Fees.Find(id);
         }
 
+        /*
+        public static DateTime ObterHoraAtual()
+        {
+            return DateTime.Now;
+        }
+
+        
+        public static TimeSpan CalcularTempoRestante(int horaReserva)
+        {
+            DateTime horaAtual = ObterHoraAtual();
+            DateTime horaReservaDateTime = new DateTime(horaAtual.Year, horaAtual.Month, horaAtual.Day, horaReserva, 0, 0);
+
+            if (horaReservaDateTime < horaAtual)
+            {
+                horaReservaDateTime = horaReservaDateTime.AddDays(1); // Adiciona um dia se a hora da reserva já passou hoje
+            }
+
+            TimeSpan tempoRestante = horaReservaDateTime - horaAtual;
+            return tempoRestante;
+        } */
+
         public static List<Fee> ShowAll()
         {
             return Program.db.Fees.ToList();

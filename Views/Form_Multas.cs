@@ -44,7 +44,7 @@ namespace iCantina.Views
 
             int valor = 0;
 
-            if (!int.TryParse(txt_valorEdit.Text, out valor) || valor <= 0)
+            if (!int.TryParse(txt_valorCriar.Text, out valor) || valor <= 0)
             {
                 MessageBox.Show("Quantidade introduzida não pode ser 0, ou numero negativo!");
                 return;
