@@ -176,6 +176,58 @@ namespace iCantina.Views
 
         private void btn_Reservar_Click(object sender, EventArgs e)
         {
+            if (lb_reservar.Items.Count == 0)
+            {
+                MessageBox.Show("Não é possivel fazer uma reserva sem pratos ou extras");
+                return;
+            }
+
+            if (!lb_reservar.Items.OfType<Meal>().Any())
+            {
+                MessageBox.Show("Tem de ter pelo menos 1 prato");
+                return;
+            }
+
+            if (lb_reservar.Items.OfType<Extra>().Count() <= 0)
+            {
+                MessageBox.Show("Tem de ter pelo menos 1 extra");
+            }
+
+            if (_tipoCustomer == tipoCustomer.Estudante)
+            {
+                if (_precoTotal > StudentController.GetStudentByNif(int.Parse(txt_nif.Text)).Saldo)
+                {
+                    MessageBox.Show("Saldo insuficiente");
+                    return;
+                }
+            }
+            else if (_tipoCustomer == tipoCustomer.Professor)
+            {
+                if (_precoTotal > ProfessorController.GetProfessorByNif(int.Parse(txt_nif.Text)).Saldo)
+                {
+                    MessageBox.Show("Saldo insuficiente");
+                    return;
+                }
+            }
+
+            Reservation reservation = new Reservation();
+            reservation.Customer = CustomerController.GetCustomerByNif(int.Parse(txt_nif.Text));
+            reservation.Consumido = false;
+            reservation.Extra = lb_reservar.Items.OfType<Extra>().ToList();
+            reservation.Meal = lb_reservar.Items.OfType<Meal>().First();
+            reservation.Menu = (Models.Menu)lb_menus.SelectedItem;
+
+            if (ReservationController.AddReservation(reservation))
+            {
+                MessageBox.Show("Reserva feita com sucesso");
+                //TODO: Atualizar saldo
+            }
+            else
+            {
+                MessageBox.Show("Erro ao fazer a reserva");
+            }
+
+           
 
         }
 

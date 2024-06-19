@@ -23,6 +23,7 @@ namespace iCantina.Models
         public DbSet<Meal> Meals { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Fee> Fees { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
 
         //set the name of the database to iCantina

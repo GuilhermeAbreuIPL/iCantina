@@ -86,6 +86,7 @@
     <Compile Include="Models\Meal.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Professor.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Views\Form_Clientes.cs">
