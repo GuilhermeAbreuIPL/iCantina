@@ -376,11 +376,8 @@ namespace iCantina.Views
         /* Parte ver Reservas */
         private void dtp_verReserva_ValueChanged(object sender, EventArgs e)
         {
-            //quando a data é colocada ele mostra na lb_reservasfeitas as reservas feitas nesse dia porem se a refeição ja estiver consumida ele não mostra
+            //quando a data é colocada ele mostra na lb_reservasfeitas as reservas feitas nesse dia
             lb_reservasfeitas.DataSource = ReservationController.GetReservationsByDate(dtp_verReserva.Value);
-
-
-
 
         }
 
@@ -388,15 +385,19 @@ namespace iCantina.Views
         {
             if (lb_reservasfeitas.SelectedItem != null && lb_reservasfeitas.SelectedItem.GetType() == typeof(Reservation))
             {
-
+                
+                
                     Reservation reservation = (Reservation)lb_reservasfeitas.SelectedItem;
 
+
+                
+
+                if (reservation != null)
                     {
                     // Mostrar os detalhes da reserva
                     txt_prato.Text = reservation.Meal.Descricao;
                     int n = 1;
 
-                    // A aplicação crasha aqui
                     foreach (Extra extra in reservation.Extra)
                     {
                         switch(n)
@@ -414,6 +415,7 @@ namespace iCantina.Views
                         n++;
                     }
                 }
+
             }
         }
 
@@ -527,29 +529,6 @@ namespace iCantina.Views
             }
         }
 
-        private void btn_reserva_Click(object sender, EventArgs e)
-        {
-            //quando este botao é clicado ele usa a reser que esta selecionada na lb_reservasfeitas e muda o valor de consumido para true, se ela ja tiver true aparece que a refeição ja foi consumida
-            if (lb_reservasfeitas.SelectedItem != null && lb_reservasfeitas.SelectedItem.GetType() == typeof(Reservation))
-            {
-                Reservation reserva = (Reservation)lb_reservasfeitas.SelectedItem;
-                if (reserva.Consumido == true)
-                {
-                    MessageBox.Show("Refeição já consumida");
-                    return;
-                }
-                ReservationController.ConsumirReserva(reserva.Id);
-                lb_reservasfeitas.DataSource = ReservationController.GetReservationsByDate(dtp_verReserva.Value);
-                MessageBox.Show("Refeição consumida com sucesso");
-
-                //limpar os campos
-                txt_prato.Text = "";
-                txt_extra1.Text = "";
-                txt_extra2.Text = "";
-                txt_extra3.Text = "";
-            }
-
-        }
     }
 
 }
