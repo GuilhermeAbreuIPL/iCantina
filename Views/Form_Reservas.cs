@@ -16,7 +16,8 @@ namespace iCantina.Views
 {
     public partial class Form_Reservas : Form
     {
-        public enum tipoCustomer{
+        public enum tipoCustomer
+        {
             Professor,
             Estudante
         }
@@ -31,7 +32,7 @@ namespace iCantina.Views
 
             //Carregar menus do dia atual e verificar e se passar da hora do almoço mostra só o jantar
             lb_menus.DataSource = MenuController.GetAvailableMenus(DateTime.Now);
-            
+
 
         }
 
@@ -47,12 +48,12 @@ namespace iCantina.Views
             //Preenche as lbs dos pratos e dos extras.
 
             //Quando o index muda limpa a lb dos pratos a lb dos extras e o lb da reserva.
-            
-            if(lb_menus.SelectedItem != null)
+
+            if (lb_menus.SelectedItem != null)
             {
                 ClearReservaAndItems();
                 Models.Menu menuSelecionado = (Models.Menu)lb_menus.SelectedItem;
-                
+
                 foreach (Meal meal in menuSelecionado.Pratos)
                 {
                     lb_pratos.Items.Add(meal);
@@ -69,7 +70,7 @@ namespace iCantina.Views
         private void btn_addPratos_Click(object sender, EventArgs e)
         {
             Meal meal = (Meal)lb_pratos.SelectedItem;
-            
+
             int selectedIndex = lb_pratos.SelectedIndex;
             if (meal != null)
             {
@@ -78,7 +79,7 @@ namespace iCantina.Views
                     MessageBox.Show("Prato já adicionado, só é possivel ter um prato por reserva.");
 
                     return;
-                    
+
                 }
                 else
                 {
@@ -88,7 +89,7 @@ namespace iCantina.Views
                     if (_tipoCustomer == tipoCustomer.Estudante)
                     {
                         txt_precoPrato.Text = menu.PrecoEstudante.ToString();
-                        
+
                         _precoTotal += menu.PrecoEstudante;
                         txt_precoTotal.Text = _precoTotal.ToString();
                         return;
@@ -99,7 +100,7 @@ namespace iCantina.Views
                         txt_precoPrato.Text = menu.PrecoProfessor.ToString();
                         _precoTotal += menu.PrecoProfessor;
                         txt_precoTotal.Text = _precoTotal.ToString();
-                       
+
                         return;
                     }
                 }
@@ -126,28 +127,19 @@ namespace iCantina.Views
                     lb_reservar.Items.Add(extra);
                     txt_precoExtra.Text = _totalExtra.ToString();
                     txt_precoTotal.Text = _precoTotal.ToString();
-                    
+
                 }
             }
-        }
-
-        private void ClearReservaAndItems()
-        {
-            lb_extras.Items.Clear();
-            lb_pratos.Items.Clear();
-            lb_reservar.Items.Clear();
-
-
         }
 
         private void btn_procurar_Click(object sender, EventArgs e)
         {
             int nif;
-            if (txt_nif.Text.Length == 9  && int.TryParse(txt_nif.Text, out nif))
+            if (txt_nif.Text.Length == 9 && int.TryParse(txt_nif.Text, out nif))
             {
                 if (StudentController.GetStudentByNif(nif) != null)
                 {
-                    
+
                     Student student = StudentController.GetStudentByNif(nif);
 
                     txt_saldo.Text = student.Saldo.ToString();
@@ -155,17 +147,20 @@ namespace iCantina.Views
                     _tipoCustomer = tipoCustomer.Estudante;
 
                     gb_all.Enabled = true;
+                    ResetBoxes();
                     return;
                 }
 
-                if(ProfessorController.GetProfessorByNif(nif) != null){
+                if (ProfessorController.GetProfessorByNif(nif) != null)
+                {
                     Professor professor = ProfessorController.GetProfessorByNif(nif);
 
                     txt_saldo.Text = professor.Saldo.ToString();
                     txt_nome.Text = professor.Nome;
                     _tipoCustomer = tipoCustomer.Professor;
-                    
+
                     gb_all.Enabled = true;
+                    ResetBoxes();
                     return;
                 }
 
@@ -176,12 +171,70 @@ namespace iCantina.Views
                 MessageBox.Show("O nif tem de ser um número e tem de ter 9 numeros");
                 return;
             }
-            
+
         }
 
-        
+        private void btn_Reservar_Click(object sender, EventArgs e)
+        {
 
-       
+        }
+
+        private void btn_retirar_Click(object sender, EventArgs e)
+        {
+            if (lb_reservar.SelectedItem != null)
+            {
+                if (lb_reservar.SelectedItem is Meal)
+                {
+                    Meal meal = (Meal)lb_reservar.SelectedItem;
+                    Models.Menu menu = (Models.Menu)lb_menus.SelectedItem;
+                    if (_tipoCustomer == tipoCustomer.Estudante)
+                    {
+                        _precoTotal -= menu.PrecoEstudante;
+                        txt_precoTotal.Text = _precoTotal.ToString();
+                        txt_precoPrato.Text = "0";
+                        lb_reservar.Items.Remove(meal);
+                        return;
+                    }
+                    else if (_tipoCustomer == tipoCustomer.Professor)
+                    {
+                        _precoTotal -= menu.PrecoProfessor;
+                        txt_precoTotal.Text = _precoTotal.ToString();
+                        txt_precoPrato.Text = "0";
+                        lb_reservar.Items.Remove(meal);
+                        return;
+                    }
+                }
+                else if (lb_reservar.SelectedItem is Extra)
+                {
+                    Extra extra = (Extra)lb_reservar.SelectedItem;
+                    _totalExtra -= extra.Preco;
+                    _precoTotal -= extra.Preco;
+                    txt_precoExtra.Text = _totalExtra.ToString();
+                    txt_precoTotal.Text = _precoTotal.ToString();
+                    lb_reservar.Items.Remove(extra);
+                }
+            }
+        }
+
+        private void ClearReservaAndItems()
+        {
+            lb_extras.Items.Clear();
+            lb_pratos.Items.Clear();
+            lb_reservar.Items.Clear();
+            txt_precoExtra.Text = "0,00";
+            txt_precoPrato.Text = "0,00";
+            txt_precoTotal.Text = "0,00";
+            _precoTotal = 0;
+            _totalExtra = 0;
+        }
+
+        private void ResetBoxes()
+        {
+            lb_reservar.Items.Clear();
+            txt_precoExtra.Text = "0,00";
+            txt_precoPrato.Text = "0,00";
+            txt_precoTotal.Text = "0,00";
+        }
     }
-    
+
 }
