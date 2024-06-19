@@ -70,6 +70,9 @@ namespace iCantina.Views
                 {
                     lb_extras.Items.Add(extra);
                 }
+
+                //ver a quantidade na txt_quantidade
+                txt_quantidade.Text = menuSelecionado.Quantidade.ToString();
             }
 
         }
@@ -254,18 +257,33 @@ namespace iCantina.Views
             {
                 MessageBox.Show("Reserva feita com sucesso");
 
+                //TODO: Atualizar saldo
+                CustomerController.MakePayment(_nifSelecionado, _precoTotal);
+                txt_saldo.Text = (decimal.Parse(txt_saldo.Text) - _precoTotal).ToString();
+
                 //funcao imprimir fatura em txt
                 ImprimirFaturaTxt(reservation);
                 //funcao imprimir fatura em pdf
                 ImprimirFaturaPdf(reservation);
 
-                //TODO: Atualizar saldo
-                CustomerController.MakePayment(_nifSelecionado, _precoTotal);
-                txt_saldo.Text = (decimal.Parse(txt_saldo.Text) - _precoTotal).ToString();
+                //diminuir 1 na quantidade do menu
+                Models.Menu menu = (Models.Menu)lb_menus.SelectedItem;
 
+                //se a quantidade for menos do que 0 nao deixa fazer a reserva e mostra mensagem de erro
+                if (menu.Quantidade <= 0)
+                {
+                    MessageBox.Show("Erro ao fazer a reserva, quantidade insuficiente");
+                    return;
+                }
+
+                menu.Quantidade -= 1;
+                MenuController.UpdateMenuQuantidade(menu.Id, menu.Quantidade);
+
+                //limpar tudo
                 txt_precoExtra.Text = "0,00";
                 txt_precoPrato.Text = "0,00";
                 txt_precoTotal.Text = "0,00";
+                txt_quantidade.Text = "";
                 _precoTotal = 0;
                 _totalExtra = 0;
                 lb_reservar.Items.Clear();
@@ -326,6 +344,7 @@ namespace iCantina.Views
             txt_precoTotal.Text = "0,00";
             _precoTotal = 0;
             _totalExtra = 0;
+            txt_quantidade.Text = "";
         }
 
         private void ResetBoxes()
@@ -369,21 +388,35 @@ namespace iCantina.Views
                 
                 
                     Reservation reservation = (Reservation)lb_reservasfeitas.SelectedItem;
-                    
 
 
+                
 
-                    if (reservation != null)
+                if (reservation != null)
                     {
-                        lb_detalhereservas.Items.Add(reservation.Meal);
-                        Console.WriteLine(reservation.Extra[0].ToString());
-                        
-                        
-                    
-                        
+                    // Mostrar os detalhes da reserva
+                    txt_prato.Text = reservation.Meal.Descricao;
+                    int n = 1;
+
+                    // A aplicação crasha aqui
+                    foreach (Extra extra in reservation.Extra)
+                    {
+                        switch(n)
+                        {
+                            case 1:
+                                txt_extra1.Text = extra.Descricao;
+                                break;
+                            case 2:
+                                txt_extra2.Text = extra.Descricao;
+                                break;
+                            case 3:
+                                txt_extra3.Text = extra.Descricao;
+                                break;
+                        }
+                        n++;
                     }
-                
-                
+                }
+
             }
         }
 
@@ -497,6 +530,10 @@ namespace iCantina.Views
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
