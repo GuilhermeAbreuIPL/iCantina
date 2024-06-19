@@ -1,4 +1,5 @@
-﻿using iCantina.Models;
+﻿using iCantina.Controllers;
+using iCantina.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,15 @@ namespace iCantina.Views
             fee.valor = Convert.ToDecimal(txt_valorCriar.Text);
             fee.numHoras = nud_numHorasCriar.Value;
 
+            decimal numHoras = nud_numHorasCriar.Value;
+
             decimal valor = 0;
+
+            if (FeeController.VerificarMultaExistente(numHoras))
+            {
+                MessageBox.Show("Multa já existe!");
+                return;
+            }
 
             if (!decimal.TryParse(txt_valorCriar.Text, out valor) || valor <= 0)
             {

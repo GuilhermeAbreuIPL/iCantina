@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nud_numHorasEdit = new System.Windows.Forms.NumericUpDown();
+            this.txt_valorEdit = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nud_numHorasCriar = new System.Windows.Forms.NumericUpDown();
+            this.txt_valorCriar = new System.Windows.Forms.TextBox();
             this.btn_criar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lb_multas = new System.Windows.Forms.ListBox();
-            this.txt_valorCriar = new System.Windows.Forms.TextBox();
-            this.txt_valorEdit = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.nud_numHorasCriar = new System.Windows.Forms.NumericUpDown();
-            this.nud_numHorasEdit = new System.Windows.Forms.NumericUpDown();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasEdit)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasCriar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -65,6 +65,38 @@
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Edit";
+            // 
+            // nud_numHorasEdit
+            // 
+            this.nud_numHorasEdit.Location = new System.Drawing.Point(149, 87);
+            this.nud_numHorasEdit.Name = "nud_numHorasEdit";
+            this.nud_numHorasEdit.Size = new System.Drawing.Size(110, 22);
+            this.nud_numHorasEdit.TabIndex = 26;
+            // 
+            // txt_valorEdit
+            // 
+            this.txt_valorEdit.Location = new System.Drawing.Point(84, 39);
+            this.txt_valorEdit.Name = "txt_valorEdit";
+            this.txt_valorEdit.Size = new System.Drawing.Size(175, 22);
+            this.txt_valorEdit.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(26, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(117, 16);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Numero de Horas:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(26, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 16);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Valor:";
             // 
             // btn_delete
             // 
@@ -112,6 +144,20 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Criar";
             // 
+            // nud_numHorasCriar
+            // 
+            this.nud_numHorasCriar.Location = new System.Drawing.Point(149, 76);
+            this.nud_numHorasCriar.Name = "nud_numHorasCriar";
+            this.nud_numHorasCriar.Size = new System.Drawing.Size(110, 22);
+            this.nud_numHorasCriar.TabIndex = 25;
+            // 
+            // txt_valorCriar
+            // 
+            this.txt_valorCriar.Location = new System.Drawing.Point(84, 28);
+            this.txt_valorCriar.Name = "txt_valorCriar";
+            this.txt_valorCriar.Size = new System.Drawing.Size(175, 22);
+            this.txt_valorCriar.TabIndex = 6;
+            // 
             // btn_criar
             // 
             this.btn_criar.Location = new System.Drawing.Point(159, 125);
@@ -144,58 +190,12 @@
             // 
             this.lb_multas.FormattingEnabled = true;
             this.lb_multas.ItemHeight = 16;
-            this.lb_multas.Location = new System.Drawing.Point(197, 113);
+            this.lb_multas.Location = new System.Drawing.Point(113, 113);
             this.lb_multas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lb_multas.Name = "lb_multas";
-            this.lb_multas.Size = new System.Drawing.Size(221, 388);
+            this.lb_multas.Size = new System.Drawing.Size(305, 388);
             this.lb_multas.TabIndex = 21;
             this.lb_multas.SelectedIndexChanged += new System.EventHandler(this.lb_multas_SelectedIndexChanged);
-            // 
-            // txt_valorCriar
-            // 
-            this.txt_valorCriar.Location = new System.Drawing.Point(84, 28);
-            this.txt_valorCriar.Name = "txt_valorCriar";
-            this.txt_valorCriar.Size = new System.Drawing.Size(175, 22);
-            this.txt_valorCriar.TabIndex = 6;
-            // 
-            // txt_valorEdit
-            // 
-            this.txt_valorEdit.Location = new System.Drawing.Point(84, 39);
-            this.txt_valorEdit.Name = "txt_valorEdit";
-            this.txt_valorEdit.Size = new System.Drawing.Size(175, 22);
-            this.txt_valorEdit.TabIndex = 10;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 16);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Numero de Horas:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 16);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Valor:";
-            // 
-            // nud_numHorasCriar
-            // 
-            this.nud_numHorasCriar.Location = new System.Drawing.Point(149, 76);
-            this.nud_numHorasCriar.Name = "nud_numHorasCriar";
-            this.nud_numHorasCriar.Size = new System.Drawing.Size(110, 22);
-            this.nud_numHorasCriar.TabIndex = 25;
-            // 
-            // nud_numHorasEdit
-            // 
-            this.nud_numHorasEdit.Location = new System.Drawing.Point(149, 87);
-            this.nud_numHorasEdit.Name = "nud_numHorasEdit";
-            this.nud_numHorasEdit.Size = new System.Drawing.Size(110, 22);
-            this.nud_numHorasEdit.TabIndex = 26;
             // 
             // Form_Multas
             // 
@@ -211,10 +211,10 @@
             this.Text = "Form_Multas";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasEdit)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasCriar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud_numHorasEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

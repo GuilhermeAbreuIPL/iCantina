@@ -95,6 +95,13 @@ namespace iCantina.Views
                         txt_precoPrato.Text = menu.PrecoEstudante.ToString();
 
                         _precoTotal += menu.PrecoEstudante;
+                        _precoTotal += fee;
+
+                        if (fee != 0)
+                        {
+                            MessageBox.Show("Foi aplicada uma multa de " + fee + "€");
+                        }
+                        
                         txt_precoTotal.Text = _precoTotal.ToString();
                         return;
 
@@ -102,7 +109,15 @@ namespace iCantina.Views
                     else if (_tipoCustomer == tipoCustomer.Professor)
                     {
                         txt_precoPrato.Text = menu.PrecoProfessor.ToString();
+
                         _precoTotal += menu.PrecoProfessor;
+                        _precoTotal += fee;
+
+                        if (fee != 0)
+                        {
+                            MessageBox.Show("Foi aplicada uma multa de " + fee + "€");
+                        }
+
                         txt_precoTotal.Text = _precoTotal.ToString();
 
                         return;
@@ -325,6 +340,13 @@ namespace iCantina.Views
             return fee.valor;
         }
 
+
+
+        /* Parte ver Reservas */
+        private void dtp_verReserva_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
