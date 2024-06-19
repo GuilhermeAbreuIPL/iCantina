@@ -102,5 +102,25 @@ namespace iCantina.Controllers
 
             return false;
         }
+
+        //update menu so com quantidade
+        public static bool UpdateMenuQuantidade(int id, int quantidade)
+        {
+            try
+            {
+                Models.Menu menu = Program.db.Menus.FirstOrDefault(m => m.Id == id);
+                menu.Quantidade = quantidade;
+                Program.db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                Program.db.Dispose();
+                Program.db = new CantinaContext();
+                return false;
+            }
+
+            return false;
+        }
     }
 }

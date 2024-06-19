@@ -103,6 +103,20 @@ namespace iCantina.Controllers
             return null;
         }
 
+        //Criar uma função onde não seja premitido criar multas a mesma hora
+        public static bool VerificarMultaExistente(decimal hora)
+        {
+            List<Fee> multas = Program.db.Fees.ToList();
+            foreach (Fee multa in multas)
+            {
+                if (multa.numHoras == hora)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public static List<Fee> ShowAll()
         {
             return Program.db.Fees.ToList();
