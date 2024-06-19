@@ -529,6 +529,45 @@ namespace iCantina.Views
             }
         }
 
+        private void btn_reserva_Click(object sender, EventArgs e)
+        {
+            //quando este buttao é carregado ele ve se a reserva selecionada no lb_reservasfeitas é se já foi consumida ou não
+            //se já foi consumida ele mostra mensagem de erro
+            //se não foi consumida ele consome a reserva e mostra mensagem de sucesso
+            if (lb_reservasfeitas.SelectedItem != null && lb_reservasfeitas.SelectedItem.GetType() == typeof(Reservation))
+            {
+                Reservation reserva = (Reservation)lb_reservasfeitas.SelectedItem;
+                if (reserva.Consumido == true)
+                {
+                    MessageBox.Show("Reserva já consumida");
+                    clear();
+                    return;
+                }
+                else
+                {
+                    if (ReservationController.ConsumirReserva(reserva.Id))
+                    {
+                        MessageBox.Show("Reserva consumida com sucesso");
+                        lb_reservasfeitas.DataSource = ReservationController.GetReservationsByDate(dtp_verReserva.Value);
+                        clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro ao consumir reserva");
+                        clear();
+                        return;
+                    }
+                }
+            }
+
+        }
+        private void clear()
+        {
+            txt_extra1.Text = "";
+            txt_extra2.Text = "";
+            txt_extra3.Text = "";
+            txt_prato.Text = "";
+        }
     }
 
 }
